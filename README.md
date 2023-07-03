@@ -12,7 +12,9 @@ create a tar file named file.tar from files filename1 filename2 filename3
 
 > tar -xf file.tar
 
-extracts files from tar file to the current directory.
+extracts files from tar file to the current directory. **BUT i noticed file permissions are not fuly preservedd**. The flag -p preserves files permisions as it were at origin.
+
+> tar -pxf file.tar
 
 ## dd
 
@@ -28,15 +30,27 @@ creates a file of 4 bytes. as the input file (if) is /dev/zero, the file is plen
 I do not feel confortable with this solution so i made this
 
 > echo 0000000000000 > source
-> head -c1 trashme > trashme
+> head -c1 source > trashme
 > ls -l
 > -rw-r--r--  1 luicasad  2023_barcelona  1 Jul  3 14:20 trashme
 
 ## ln
-by default ln makes hard links
+by default ln makes hard links.  Hard links applies only to files, Hard links may not normally refer to directories and may not span file     systems
 -s creates a simbolik link.
 
 ln source _file target_file
 
 ## chmod -h
 Apply to sinbolic links
+
+
+## ls
+ -F Display a slash (`/') immediately after each pathname that is a directory, an asterisk (`*') after each that is executable, an at             sign (`@') after each symbolic link, an equals sign (`=') after each socket, a percent sign (`%') after each whiteout, and a vertical bar (`|') after each that is a FIFO.
+
+ -m Stream output format; list files across the page, separated by commas.
+ -p Write a slash (`/') after each filename if that file is a directory.
+ -t Sort by time modified (most recently modified first) before sorting the operands by lexicographical order.
+ -u Use time of last access, instead of last modification of the file for sorting (-t) or long printing (-l).
+
+ ## git log
+ --format=format:"%H"  
