@@ -53,4 +53,54 @@ Apply to sinbolic links
  -u Use time of last access, instead of last modification of the file for sorting (-t) or long printing (-l).
 
  ## git log
- --format=format:"%H"  
+ --format=format:"%H"
+
+
+## diff & patch
+
+Discover difference between two files with diff, then apply differences wiht patch
+
+### create the files 
+> echo 'luis' > aa
+> echo 'luis Miguel' > bb
+### compare them
+> diff -u aa bb > patch.file
+### see differences
+> cat patch.file
+```
+--- aa	2023-07-04 10:21:16.000000000 +0200
++++ bb	2023-07-04 10:21:31.000000000 +0200
+@@ -1 +1 @@
+-luis
++luis Miguel
+```
+### apply changes to aa to make it equal to bb
+> patch aa < patch.file
+> cat aa
+```
+luis Miguel
+```
+### apply changes to bb to maje it equal to aa
+> patch bb < path.file
+> cat bb
+```
+luis
+```
+
+In the exercise we got two files a and sw.diff. From the command in the picture `diff a b > sw.diff ` i know i can use sw.diff to patch b.
+
+> patch -b a < sw.diff
+
+flag -b keeps the original as a.origin. Rename a as b . repeat command `diff a b > sw2.diff `. compare two files od differences `diff sw.diff sw2.diff `. you get not difference so b is the solution to submit.
+
+when 
+
+ ## norminette
+ python3 -m pip install --upgrade pip setuptools
+ python3 -m pip install norminette
+ The script norminette is installed in '/Users/xxxxxx/Library/Python/3.11/bin' which is not on PATH
+ Consider adding this directory to PATH
+ > vim .zprofile
+ > PATH=/Users/xxxxxx/Library/Python/3.11/bin:$PAT
+ > source ~/.zprofile
+ 
