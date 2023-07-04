@@ -123,6 +123,19 @@ termine par ~, ou commence et se termine par #.
 -delete removes found files
 2>/dev/null hides error from permission denied
 
+## magic files
+
+File utility compiles a text file i can use to detect the file type of others files.
+inside `man magic` i found instructions/commnads to include as rules in such text file
+
+Each rules, with four fields separated by spaces or tabs, follow this template
+offset type test message
+
+**offset**  [42]         A number specifying the offset (in bytes) into the file of the data which is to be tested
+**type**    [string]     There are 47 types. i selected string as i look for "42" string
+**test**    [42]       The value to be compared with the value from the file
+**message** [42 file]  The message to be printed if the comparison succeeds
+
 
 ## norminette
  python3 -m pip install --upgrade pip setuptools
