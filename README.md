@@ -58,6 +58,11 @@ Apply to sinbolic links
 
  ## git log
  --format=format:"%H"
+ --pretty="%H"
+
+## git ls-files
+Show information about files in the index and the working tree
+
 
 
 ## diff & patch
@@ -87,12 +92,14 @@ Discover difference between two files with diff, then apply differences wiht pat
 ### Apply changes to aa to make it equal to bb
 
 > patch aa < patch.file
+
 > cat aa
 ```
 luis Miguel
 ```
 ### Apply changes to bb to make it equal to aa
 > patch bb < path.file
+
 > cat bb
 ```
 luis
@@ -136,9 +143,12 @@ inside `man magic` i found instructions/commnads to include as rules in such tex
 Each rules, with four fields separated by spaces or tabs, follow this template
 offset type test message
 
-**offset**  [42]         A number specifying the offset (in bytes) into the file of the data which is to be tested
+**offset**  [41]         A number specifying the offset (in bytes) into the file of the data which is to be tested
+
 **type**    [string]     There are 47 types. i selected string as i look for "42" string
+
 **test**    [42]       The value to be compared with the value from the file
+
 **message** [42 file]  The message to be printed if the comparison succeeds
 
 
