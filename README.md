@@ -25,13 +25,17 @@ In the venerable Unix command dd, the disk/data duplicator (or, sometimes, **dis
 creates a file of 4 bytes. as the input file (if) is /dev/zero, the file is plenty of zeros
 
 > dd if=/dev/urandom of=test4 bs=1 count=2
+
  creates a file of 2 bytes with random chars.
 
 I do not feel confortable with this solution so i made this
 
 > echo 0000000000000 > source
+
 > head -c1 source > trashme
+
 > ls -l
+
 > -rw-r--r--  1 luicasad  2023_barcelona  1 Jul  3 14:20 trashme
 
 ## ln
