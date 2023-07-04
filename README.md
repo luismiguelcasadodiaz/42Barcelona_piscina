@@ -151,6 +151,20 @@ offset type test message
 
 **message** [42 file]  The message to be printed if the comparison succeeds
 
+## Environmental versus shell variables
+
+Environmental variables are variables that are defined for the current shell and are **inherited by any child** shells or processes. Environmental variables are used to pass information into processes that are spawned from the shell.
+
+Shell variables are variables that are contained **exclusively within the shell** in which they were set or defined. They are often used to keep track of ephemeral data, like the current working directory.
+
+`printenv` or `env` prints all enviromental variables(26 today). `printenv varname` prints an individual var. 
+`env` lets you modify the environment that programs run in by passing a set of variable definitions into a command
+
+> env FT_USER=luicasad ./print_groups.sh
+
+`set` prints all shell variables (155 today). 
+
+![source of knowledge](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
 
 ## norminette
  python3 -m pip install --upgrade pip setuptools
