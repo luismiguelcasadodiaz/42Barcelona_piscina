@@ -1,4 +1,4 @@
-# 42Barcelona_piscina
+# Take Aways
 Here are my learnings during the 42 Barcelone 3rd July 2023 Piscine
 
 ## tar
@@ -35,7 +35,7 @@ I do not feel confortable with this solution so i made this
 > -rw-r--r--  1 luicasad  2023_barcelona  1 Jul  3 14:20 trashme
 
 ## ln
-by default ln makes hard links.  Hard links applies only to files, Hard links may not normally refer to directories and may not span file     systems
+By default ln makes hard links.  Hard links applies only to files, Hard links may not normally refer to directories and may not span file     systems
 -s creates a simbolik link.
 
 ln source _file target_file
@@ -45,10 +45,10 @@ Apply to sinbolic links
 
 
 ## ls
- -F Display a slash (`/') immediately after each pathname that is a directory, an asterisk (`*') after each that is executable, an at             sign (`@') after each symbolic link, an equals sign (`=') after each socket, a percent sign (`%') after each whiteout, and a vertical bar (`|') after each that is a FIFO.
+ -F Display a slash ('/') immediately after each pathname that is a directory, an asterisk ('*') after each that is executable, an at sign ('@') after each symbolic link, an equals sign ('=') after each socket, a percent sign (`%') after each whiteout, and a vertical bar ('|') after each that is a FIFO.
 
  -m Stream output format; list files across the page, separated by commas.
- -p Write a slash (`/') after each filename if that file is a directory.
+ -p Write a slash ('/') after each filename if that file is a directory.
  -t Sort by time modified (most recently modified first) before sorting the operands by lexicographical order.
  -u Use time of last access, instead of last modification of the file for sorting (-t) or long printing (-l).
 
@@ -60,13 +60,19 @@ Apply to sinbolic links
 
 Discover difference between two files with diff, then apply differences wiht patch
 
-### create the files 
+### Create the files.
 > echo 'luis' > aa
+
 > echo 'luis Miguel' > bb
-### compare them
+
+### Compare them.
+
 > diff -u aa bb > patch.file
-### see differences
+
+### See differences.
+
 > cat patch.file
+> 
 ```
 --- aa	2023-07-04 10:21:16.000000000 +0200
 +++ bb	2023-07-04 10:21:31.000000000 +0200
@@ -74,13 +80,14 @@ Discover difference between two files with diff, then apply differences wiht pat
 -luis
 +luis Miguel
 ```
-### apply changes to aa to make it equal to bb
+### Apply changes to aa to make it equal to bb
+
 > patch aa < patch.file
 > cat aa
 ```
 luis Miguel
 ```
-### apply changes to bb to maje it equal to aa
+### Apply changes to bb to make it equal to aa
 > patch bb < path.file
 > cat bb
 ```
@@ -91,11 +98,33 @@ In the exercise we got two files a and sw.diff. From the command in the picture 
 
 > patch -b a < sw.diff
 
-flag -b keeps the original as a.origin. Rename a as b . repeat command `diff a b > sw2.diff `. compare two files od differences `diff sw.diff sw2.diff `. you get not difference so b is the solution to submit.
+Flag -b keeps the original as a.origin. Rename a as b . repeat command `diff a b > sw2.diff `. compare two files od differences `diff sw.diff sw2.diff `. You get not difference so b is the solution to submit.
 
-when 
 
- ## norminette
+## touch
+
+-t flag customizes access and modification times to the specified time instead of the current time of day
+
+## find
+
+rechercher, à partir du répertoire courant et dans tous ses sous-répertoires, **les fichiers** dont le nom se
+termine par ~, ou commence et se termine par #.
+
+• La ligne de commande affichera et effacera les fichiers trouvés.
+
+-type f search only regular files.
+-name '*~' search file names ending with '~'
+-name '#*#' search filenames starting and endiing wiht '#'
+-or is a logical operator
+
+\( and \) parentesis must be escaped.
+
+-print prints file names
+-delete removes found files
+2>/dev/null hides error from permission denied
+
+
+## norminette
  python3 -m pip install --upgrade pip setuptools
  python3 -m pip install norminette
  The script norminette is installed in '/Users/xxxxxx/Library/Python/3.11/bin' which is not on PATH
