@@ -104,6 +104,7 @@ Flag -b keeps the original as a.origin. Rename a as b . repeat command `diff a b
 ## touch
 
 -t flag customizes access and modification times to the specified time instead of the current time of day
+-h is the right flight to change access and modification times for a symbolic link without changing linked file.
 
 ## find
 
