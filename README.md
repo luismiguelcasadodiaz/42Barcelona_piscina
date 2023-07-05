@@ -2,8 +2,8 @@
 Here are my learnings during the 42 Barcelone 3rd July 2023 Piscine
 
 ## tar
-tar manipulates **tape** archives
-tar creates and manipulates streaming archive files.  This implementation can extract from tar, pax, cpio, **zip, jar, ar, xar, rpm, 7-zip**, and ISO 9660 cdrom images and can create tar, pax, cpio, ar, zip, 7-zip, and shar  archives.
+`tar` manipulates **tape** archives
+`tar` creates and manipulates streaming archive files.  This implementation can extract from tar, pax, cpio, **zip, jar, ar, xar, rpm, 7-zip**, and ISO 9660 cdrom images and can create tar, pax, cpio, ar, zip, 7-zip, and shar  archives.
 > tar -cf  file.tar filename1 filename2 filename3
 -c create
 -f file
@@ -176,16 +176,16 @@ shows nothing, cause `bash` has created a child process.
 
  `export FT_USER` turn our shell variable into an environmental variable we can find wiht `printenv`. In case we created a child process we will find it the variable.
 
- `export FT_NAME='Luis Miguel!' set environmental variables in a single step. 
+ `export FT_NAME='Luis Miguel!'` set environmental variables in a single step. 
 
- WHen we create an environmentlal variable in a child process, there isn’t a built-in way of setting environmental variables of the parent shell. This is good in most cases and prevents programs from affecting the operating environment from which they were called.
+ When we create an environmentlal variable in a child process, there isn’t a built-in way of setting environmental variables of the parent shell. This is good in most cases and prevents programs from affecting the operating environment from which they were called.
 
  ### Demoting and unsetting variables.
  We can change an environmental variable  back into a shell variable by typing `export -n FT_USER`. Now `printenv` does not find iit , but `set` does.
 
  If we want to completely unset a variable, either shell or environmental, we can do so with `unset FT_USER`
 
- ### Login, Non-Login, Interactive, and Non-Interactive Shell Sessions
+ ### Login, Non-Login, Interactive, and Non-Interactive Shell Sessions.
  Each shell session is classified as either login or non-login and interactive or non-interactive.
  The bash shell reads different configuration files depending on how the session is started.
 
@@ -199,7 +199,16 @@ shows nothing, cause `bash` has created a child process.
 
 **Non-interactive shells** will read:
 - the file specified by environmental variable `BASH_ENV`.
+
+ ### Implementing Environmental Variables.
+
+ Most Linux distributions configure the login session configuration files to source the non-login session configuration files. This means that you can define environmental variables that you want inside the non-login configuration files for both session types.
+
+ This means that the place to define user-specific environmental variables is in the `~/.bashrc` file. A line like `export VARNAME=value` will do he job
+
  
+
+ If you need to set system-wide variables, you may want to think about adding them to `/etc/profile`, `/etc/bash.bashrc`, or `/etc/environment`.
 
 ![source of knowledge](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
 
@@ -211,6 +220,8 @@ shows nothing, cause `bash` has created a child process.
  > vim .zprofile
  > PATH=/Users/xxxxxx/Library/Python/3.11/bin:$PAT
 
+
+![Zsh customization](https://ohmyz.sh/#install)
 # C
 ## Fucntion Prototyping versus funcion declarations
 A function in C is a block of code that performs a specific task and function Prototype in C is the most important feature of C language that tells the compiler about the function return type, several parameters it accepts, the data type of parameters to avoid any warning and errors.
