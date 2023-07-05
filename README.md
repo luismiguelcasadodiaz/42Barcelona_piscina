@@ -12,7 +12,7 @@ create a tar file named file.tar from files filename1 filename2 filename3
 
 > tar -xf file.tar
 
-extracts files from tar file to the current directory. **BUT i noticed file permissions are not fuly preservedd**. The flag -p preserves files permisions as it were at origin.
+extracts files from tar file to the current directory. **BUT i noticed file permissions are not fully preserved**. The flag -p preserves files permisions as it were at origin.
 
 > tar -pxf file.tar
 
@@ -137,7 +137,7 @@ termine par ~, ou commence et se termine par #.
 
 ## magic files
 
-File utility compiles a text file i can use to detect the file type of others files.
+`file` utility compiles a text file i can use to detect the file type of others files.
 inside `man magic` i found instructions/commnads to include as rules in such text file
 
 Each rules, with four fields separated by spaces or tabs, follow this template
@@ -164,6 +164,43 @@ Shell variables are variables that are contained **exclusively within the shell*
 
 `set` prints all shell variables (155 today). 
 
+### Creating a shell variable
+`FT_USER=luicasad` This variable is available in our current session, but **will not be passed down to child processes**. You find it with `env` but not with `printenv`.
+`echo $FT_USER` shows variable contents, but ...
+
+> bash
+> echo FT_USER
+
+shows nothing, cause `bash` has created a child process.
+ ### Creating a environmental variable
+
+ `export FT_USER` turn our shell variable into an environmental variable we can find wiht `printenv`. In case we created a child process we will find it the variable.
+
+ `export FT_NAME='Luis Miguel!' set environmental variables in a single step. 
+
+ WHen we create an environmentlal variable in a child process, there isn’t a built-in way of setting environmental variables of the parent shell. This is good in most cases and prevents programs from affecting the operating environment from which they were called.
+
+ ### Demoting and unsetting variables.
+ We can change an environmental variable  back into a shell variable by typing `export -n FT_USER`. Now `printenv` does not find iit , but `set` does.
+
+ If we want to completely unset a variable, either shell or environmental, we can do so with `unset FT_USER`
+
+ ### Login, Non-Login, Interactive, and Non-Interactive Shell Sessions
+ Each shell session is classified as either login or non-login and interactive or non-interactive.
+ The bash shell reads different configuration files depending on how the session is started.
+
+ **login session** will read:
+ - first `/etc/profile`.
+ - then login shell configuration file in the user’s home directory. The first file that it can find out of `~/.bash_profile`, `~/.bash_login`, and `~/.profile` and does not read any further files.
+
+**non-login shell** will read: 
+- fisrt `/etc/bash.bashrc`
+- then the user-specific `~/.bashrc` file to build its environment.
+
+**Non-interactive shells** will read:
+- the file specified by environmental variable `BASH_ENV`.
+ 
+
 ![source of knowledge](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
 
 ## norminette
@@ -173,5 +210,16 @@ Shell variables are variables that are contained **exclusively within the shell*
  Consider adding this directory to PATH
  > vim .zprofile
  > PATH=/Users/xxxxxx/Library/Python/3.11/bin:$PAT
+
+# C
+## Fucntion Prototyping versus funcion declarations
+A function in C is a block of code that performs a specific task and function Prototype in C is the most important feature of C language that tells the compiler about the function return type, several parameters it accepts, the data type of parameters to avoid any warning and errors.
+In C language programs are compiled line by line and if we call a function before we have defined it in the program , we will get some warning like
+
+```
+[Warning] conflicting types for 'function' previous implicit declaration of 'function' was here.
+```
+
+So to avoid this we declare function prototypes at the start of our programs and may define the functions later on. 
  > source ~/.zprofile
  
