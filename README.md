@@ -211,7 +211,8 @@ shows nothing, cause `bash` has created a child process.
  If you need to set system-wide variables, you may want to think about adding them to `/etc/profile`, `/etc/bash.bashrc`, or `/etc/environment`.
 
 ![source of knowledge](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
-
+## tr -d '\t'
+deletes tabular char
 ## norminette
  python3 -m pip install --upgrade pip setuptools
  python3 -m pip install norminette
