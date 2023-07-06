@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 10:34:32 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/06 15:11:24 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	ft_putchar(char c)
+#include "ft_print_comb2.c"
+
+int	main(void)
 {
-	int	n;
-
-	n = write(1, &c, 1);
+	ft_print_comb2();
 }

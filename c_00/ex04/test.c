@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 10:34:32 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/06 11:51:50 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/06 12:02:50 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdio.h>
+#include "ft_is_negative.c"
+#include <limits.h>
 
-void	ft_putchar(char c)
+int	main(void)
 {
-	int	n;
-
-	n = write(1, &c, 1);
+	printf("%d\n", INT_MAX);
+    printf("%d\n", INT_MIN);
+	ft_is_negative(-3);
+	ft_is_negative(-2);
+	ft_is_negative(-1);
+	ft_is_negative(0);
+	ft_is_negative(1);
+	ft_is_negative(2);
 }

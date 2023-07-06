@@ -6,14 +6,12 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 10:34:32 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/06 11:31:43 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "ft_print_reverse_alphabet.c"
 
-void	ft_putchar(char c)
+int	main(void)
 {
-	int	n;
-
-	n = write(1, &c, 1);
+	ft_print_reverse_alphabet();
 }

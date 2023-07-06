@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 10:34:32 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/06 11:38:34 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/06 13:58:11 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_print_numbers(void)
 {
-	int	n;
+	int		d;
 
-	n = write(1, &c, 1);
+	d = 48;
+	while (d <= 57)
+	{
+		write(1, &d, 1);
+		d++;
+	}
 }

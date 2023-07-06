@@ -135,6 +135,8 @@ termine par ~, ou commence et se termine par #.
 -delete removes found files
 2>/dev/null hides error from permission denied
 
+![interesting find prompts](https://geekflare.com/es/linux-find-commands/)
+
 ## magic files
 
 `file` utility compiles a text file i can use to detect the file type of others files.
@@ -234,4 +236,7 @@ In C language programs are compiled line by line and if we call a function befor
 
 So to avoid this we declare function prototypes at the start of our programs and may define the functions later on. 
  > source ~/.zprofile
- 
+![gcc how to ](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
+# git
+
+![git reference](https://git-scm.com/doc) 
