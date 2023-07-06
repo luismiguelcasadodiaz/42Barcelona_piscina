@@ -15,25 +15,33 @@
 
 #define NUM_DIGITS 11
 
-void	show_sign(int nb)
+void	show_sign(int *nb)
 {
 	int	sign;
+	int aux;
 
 	sign = 45;
-	if (nb < 0)
+	if (*nb < 0)
 	{
 		write(1, &sign, 1);
+		aux = *nb;
+		aux = -aux;
+		*nb = aux; 
 	}
 }
 
 int get_modulo(int *newnum)
 {
 	int modulo;
+	int aux;
 
-	modulo = *newnum % 10;
-	newnum = *newnum - modulo;
+	aux = *newnum;
+	modulo = aux % 10;
+	aux = aux - modulo;
+	aux = aux / 10;
+	*newnum = aux;
+	
 	modulo = 48 + modulo;
-	newnum = *newnum / 10;
 	return (modulo);
 
 }
@@ -43,16 +51,22 @@ void	treat_number(int nb)
 	int	newnum;
 	int num_array[11];
 	int idx;
+	int digit;
 
 	idx = 0;
-
 	newnum = nb;
 	while (newnum != 0)
 	{
 		num_array[idx] = get_modulo(&newnum);
 		idx++;
 	}
-	write(1, &num_array, 11);
+	idx--;
+	while (0 <= idx )
+	{
+		digit = num_array[idx];
+		write(1, &digit, 1);
+		idx--;
+	}
 }
 
 void	ft_putnbr(int nb)
@@ -64,7 +78,7 @@ void	ft_putnbr(int nb)
 	}
 	else
 	{
-		show_sign(nb);
+		show_sign(&nb);
 		treat_number(nb);
 	}
 }

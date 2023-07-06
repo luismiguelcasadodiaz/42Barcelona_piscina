@@ -28,5 +28,5 @@ int	main(void)
 	num_text = (char) nb;
 
 	write(1, &num_text, 6); */
-	ft_putnbr(1234);
+	ft_putnbr(-123456789);
 }
