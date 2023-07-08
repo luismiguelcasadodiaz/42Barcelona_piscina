@@ -1,0 +1,2 @@
+#!/bin/sh
+gcc -Wall -Wextra -Werror -o main ft_putchar.c rush01.c main.c 
