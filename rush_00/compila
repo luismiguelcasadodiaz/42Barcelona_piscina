@@ -1,2 +1,6 @@
 #!/bin/sh
-gcc -Wall -Wextra -Werror -o main ft_putchar.c rush01.c main.c 
+gcc -Wall -Wextra -Werror -o rush00 ft_putchar.c rush00.c main.c && ./rush00
+gcc -Wall -Wextra -Werror -o rush01 ft_putchar.c rush01.c main.c && ./rush01
+gcc -Wall -Wextra -Werror -o rush02 ft_putchar.c rush02.c main.c && ./rush02
+gcc -Wall -Wextra -Werror -o rush03 ft_putchar.c rush03.c main.c && ./rush03
+gcc -Wall -Wextra -Werror -o rush04 ft_putchar.c rush04.c main.c && ./rush04

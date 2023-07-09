@@ -6,11 +6,11 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 15:11:24 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/09 15:12:36 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print_comb2.c"
+void    ft_print_comb2(void);
 
 int	main(void)
 {

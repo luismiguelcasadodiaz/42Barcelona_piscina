@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:57:24 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/09 15:33:32 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/09 17:04:11 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,67 +15,45 @@
 
 #define NUM_DIGITS 11
 
-void	show_sign(int *nb)
+void	show_sign(int nb)
 {
 	int	sign;
-	int	aux;
 
 	sign = 45;
-	if (*nb < 0)
+	if (nb < 0)
 	{
 		write(1, &sign, 1);
-		aux = *nb;
-		aux = -aux;
-		*nb = aux; 
 	}
-}
-
-int	get_modulo(int *newnum)
-{
-	int	modulo;
-	int	aux;
-
-	aux = *newnum;
-	modulo = aux % 10;
-	aux = aux - modulo;
-	aux = aux / 10;
-	*newnum = aux;
-	modulo = 48 + modulo;
-	return (modulo);
 }
 
 void	treat_number(int nb)
 {
-	int	newnum;
-	int	num_array[11];
-	int	idx;
-	int	digit;
-
-	idx = 0;
-	newnum = nb;
-	while (newnum != 0)
+	if (nb > 9)
 	{
-		num_array[idx] = get_modulo(&newnum);
-		idx++;
+		treat_number( nb / 10);
 	}
-	idx--;
-	while (0 <= idx)
-	{
-		digit = num_array[idx];
-		write(1, &digit, 1);
-		idx--;
-	}
+	write(1, &"0123456789"[ nb % 10], 1);
 }
 
 void	ft_putnbr(int nb)
-{
+{	
 	if (nb == 0)
 	{
-		write(1, "0", 1);
+			write(1, "0", 1);
 	}
 	else
 	{
-		show_sign(&nb);
-		treat_number(nb);
+		if (nb < 0)
+		{
+			long	a;
+
+			show_sign(nb);
+			a = -1 * nb;
+			treat_number(a);
+		}
+		else
+		{
+			treat_number(nb);
+		}
 	}
 }

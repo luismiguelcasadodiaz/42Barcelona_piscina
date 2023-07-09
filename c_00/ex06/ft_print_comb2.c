@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:45:50 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 15:19:03 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/09 15:21:24 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,14 @@ void	ft_print_comb2(void)
 	int	num2;
 
 	num1 = 0;
-	num2 = 0;
 	while (num1 < 100)
 	{
+		num2 = num1 + 1; // makes posible 01 98, 01 99, 02 03,
 		while (num2 < 100)
 		{
 			show_couple(num1, num2);
 			num2++;
 		}
-		num2 = 0;
 		num1++;
 	}
 	clean_last_separator();
