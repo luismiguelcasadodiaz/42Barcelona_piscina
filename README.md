@@ -63,8 +63,9 @@ Apply to sinbolic links
 ## git ls-files
 Show information about files in the index and the working tree
 
-
-
+`--ignored` , `--cached`,  `--deleted`
+`--others` show untracked files
+`--exclude-standard` Add standard exclusions .git/info/exclude, .gitignore
 ## diff & patch
 
 Discover difference between two files with diff, then apply differences wiht patch
@@ -215,6 +216,22 @@ shows nothing, cause `bash` has created a child process.
 ![source of knowledge](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
 ## tr -d '\t'
 deletes tabular char
+
+## bc 
+Is a basic calculator
+
+`bc` accepts command like that `bc <<< '5 +7'` that returns `12`.
+
+bc takes its input and prints its output in decimal. However, you can set either the input or the output to be some other base numbering system - for example, hexadecimal or binary - using the ibase and obase commands.
+
+Setting *only* ibase=16, bc accepts hexadecimal input text to translate to decimal.
+
+Setting *only* obase, bc converts decimal input number to hexadecimal.
+
+Be careful to set *obase* before *ibase*, when converting between not decimal bases 
+
+## sed
+to insert something at line start `sed 's/^/init_tag/'`
 ## norminette
  python3 -m pip install --upgrade pip setuptools
  python3 -m pip install norminette
