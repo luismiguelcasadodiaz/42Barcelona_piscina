@@ -6,43 +6,28 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:44:04 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/08 20:15:12 by alorente         ###   ########.fr       */
+/*   Updated: 2023/07/08 02:26:00 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	line(char intro, char medio, char final, int x)
-{
-	ft_putchar(intro);
-	while (x > 2)
-	{
-		ft_putchar(medio);
-		x--;
-	}
-	if (x == 2)
-	{
-		ft_putchar(final);
-	}
-	ft_putchar('\n');
-}
+#include "rush01.h"
 
 void	rush(int x, int y)
 {
+	int	idx_x;
 	int	idx_y;
 
+	idx_x = 1;
 	idx_y = 1;
-	if (x > 0 && y > 0)
+	while (idx_y <= y)
 	{
-		line('/', '*', '\\', x);
-		while (idx_y <= y - 2)
+		while (idx_x <= x)
 		{
-			line('*', ' ', '*', x);
-			idx_y++;
+			ft_putchar('A');
+			idx_x++;
 		}
-		if (y > 1)
-		{
-			line('\\', '*', '/', x);
-		}
+		idx_x = 1;
+		ft_putchar('\n');
+		idx_y++;
 	}
 }

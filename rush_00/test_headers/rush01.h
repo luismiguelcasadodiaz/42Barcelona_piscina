@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rush01.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 22:43:48 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/09 19:37:38 by nisoliz          ###   ########.fr       */
+/*   Created: 2023/07/07 23:33:39 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/08 01:18:46 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef RUSH01_H
+# define RUSH01_H
+
+# include "ft_putchar.h"
+
 void	rush(int x, int y);
 
-int	main(void)
-{
-	rush(5, 3);
-	rush(5, 1);
-	rush(1, 1);
-	rush(1, 5);
-	rush(4, 4);
-	return (0);
-}
+#endif

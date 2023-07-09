@@ -1,0 +1,15 @@
+#!/bin/sh
+head -c40 source > file40
+head -c41 source > file41
+head -c42 source > file42
+head -c43 source > file43
+head -c44 source > file44
+head -c45 source > file45
+head -c46 source > file46
+head -c47 source > file47
+head -c48 source > file48
+head -c49 source > file49
+head -c50 source > file50
+head -c51 source > file51
+head -c52 source > file52
+head -c53 source > file53

@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 22:43:48 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/09 19:37:38 by nisoliz          ###   ########.fr       */
+/*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/08 00:02:34 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
+#include "ft_putchar.h"
 
-int	main(void)
+void	ft_putchar(char c)
 {
-	rush(5, 3);
-	rush(5, 1);
-	rush(1, 1);
-	rush(1, 5);
-	rush(4, 4);
-	return (0);
+	int	n;
+
+	n = write(1, &c, 1);
 }
