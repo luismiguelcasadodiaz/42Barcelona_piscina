@@ -1,0 +1,2 @@
+#!/bin/sh
+gcc -Wall -Wextra -Werror -o test ft_putnbr.c test.c && ./test

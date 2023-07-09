@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:57:24 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 20:26:32 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/09 15:33:32 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	show_sign(int *nb)
 {
 	int	sign;
-	int aux;
+	int	aux;
 
 	sign = 45;
 	if (*nb < 0)
@@ -30,28 +30,26 @@ void	show_sign(int *nb)
 	}
 }
 
-int get_modulo(int *newnum)
+int	get_modulo(int *newnum)
 {
-	int modulo;
-	int aux;
+	int	modulo;
+	int	aux;
 
 	aux = *newnum;
 	modulo = aux % 10;
 	aux = aux - modulo;
 	aux = aux / 10;
 	*newnum = aux;
-	
 	modulo = 48 + modulo;
 	return (modulo);
-
 }
 
 void	treat_number(int nb)
 {
 	int	newnum;
-	int num_array[11];
-	int idx;
-	int digit;
+	int	num_array[11];
+	int	idx;
+	int	digit;
 
 	idx = 0;
 	newnum = nb;
@@ -61,7 +59,7 @@ void	treat_number(int nb)
 		idx++;
 	}
 	idx--;
-	while (0 <= idx )
+	while (0 <= idx)
 	{
 		digit = num_array[idx];
 		write(1, &digit, 1);
@@ -71,7 +69,6 @@ void	treat_number(int nb)
 
 void	ft_putnbr(int nb)
 {
-
 	if (nb == 0)
 	{
 		write(1, "0", 1);
