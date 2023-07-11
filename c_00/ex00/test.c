@@ -6,10 +6,10 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/07 20:22:15 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/11 11:54:16 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_putchar.c"
+void	ft_putchar(char c);
 
 int	main(void)
 {
