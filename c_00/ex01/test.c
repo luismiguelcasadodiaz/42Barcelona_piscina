@@ -6,10 +6,10 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 10:42:00 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/11 11:57:50 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_print_alphabet.c"
+void	ft_print_alphabet(void);
 
 int	main(void)
 {

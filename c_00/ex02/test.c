@@ -6,10 +6,10 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/06 11:31:43 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/11 13:47:55 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_print_reverse_alphabet.c"
+void	ft_print_reverse_alphabet();
 
 int	main(void)
 {

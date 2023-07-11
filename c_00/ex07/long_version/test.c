@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/09 15:30:31 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:18:43 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	ft_putnbr(int nb);
 
 int	main(void)
 {
-	ft_putnbr(-123456789);
+	ft_putnbr(-2147483648);
 }

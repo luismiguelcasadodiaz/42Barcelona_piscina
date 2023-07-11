@@ -6,13 +6,12 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:57:24 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/09 15:33:32 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:29:31 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-
+#include <limits.h>
 #define NUM_DIGITS 11
 
 void	show_sign(int *nb)
@@ -69,13 +68,24 @@ void	treat_number(int nb)
 
 void	ft_putnbr(int nb)
 {
+	int	quo;
+	int	mod;
+
 	if (nb == 0)
 	{
 		write(1, "0", 1);
 	}
+	else if (nb == INT_MIN)
+	{
+		quo = nb / 10;
+		quo = quo * -1;
+		mod = 48 + -1 * (nb % 10);
+		write(1, "-", 1);
+		treat_number(quo);
+		write(1, &mod, 1);
+	}
 	else
 	{
-		show_sign(&nb);
 		treat_number(nb);
 	}
 }
