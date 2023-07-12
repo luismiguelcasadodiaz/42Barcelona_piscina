@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:10:25 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -16,15 +16,15 @@ void	ft_ultimate_ft(int *********nbr);
 int	main(void)
 {
 	int	num;
-	int *p_num;
-	int **pp_num;
-	int ***ppp_num;
-	int ****pppp_num;
-	int *****ppppp_num;
-	int ******pppppp_num;
-	int *******ppppppp_num;
-	int ********pppppppp_num;
-	int *********ppppppppp_num;
+	int	*p_num;
+	int	**pp_num;
+	int	***ppp_num;
+	int	****pppp_num;
+	int	*****ppppp_num;
+	int	******pppppp_num;
+	int	*******ppppppp_num;
+	int	********pppppppp_num;
+	int	*********ppppppppp_num;
 
 	num = 0;
 	p_num = &num;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/12 19:39:06 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/12 19:43:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_rev_int_tab(int *tab, int size)
 	idx_right = size -1;
 	while (half > 0)
 	{
-		ft_swap(&tab[idx_right++], &tab[idx_left--]);
+		ft_swap(&tab[idx_right--], &tab[idx_left++]);
 		half--;
 	}
 }
