@@ -9,18 +9,31 @@
 /*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*	int	mod;
+	int	div;
+	mod = 0;
+	div = 0;
+*/
+#include <stdio.h>
 
-/*
-  INT_MAX =  2147483647 
-  INT_MIN = -2147483648
-            12345678901
-		   I need an 11 bytes string for representing any INT.
-		   plus \0 for finishing the string end ==> 12
-*/ 
-
-void	ft_print_combn(int n);
+void	ft_div_mod(int a, int b, int *div, int *mod);
 
 int	main(void)
 {
-	ft_print_combn(2);
+	int	*pdiv;
+	int	*pmod;
+	int	a;
+	int	b;
+
+	a = 24;
+	b = 6;
+	pdiv = &a;
+	pmod = &b;
+	printf("El valor de a es %d\n", a);
+	printf("El valor de b es %d\n", b);
+	ft_div_mod(a, b, pdiv, pmod);
+	printf("El valor de la division es %d\n", *pdiv);
+	printf("El valor del resto es  es %d\n", *pmod);
+	printf("El valor de a es %d\n", a);
+	printf("El valor de b es %d\n", b);
 }

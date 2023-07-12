@@ -9,18 +9,34 @@
 /*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-/*
-  INT_MAX =  2147483647 
-  INT_MIN = -2147483648
-            12345678901
-		   I need an 11 bytes string for representing any INT.
-		   plus \0 for finishing the string end ==> 12
-*/ 
-
-void	ft_print_combn(int n);
+void	ft_rev_int_tab(int *tab, int size);
 
 int	main(void)
 {
-	ft_print_combn(2);
+	int	tabla[12];
+	int	*ptabla;
+	int	idx;
+
+	tabla[0] = 1;
+	tabla[1] = 2;
+	tabla[2] = 3;
+	tabla[3] = 4;
+	tabla[4] = 5;
+	tabla[5] = 6;
+	tabla[6] = 7;
+	tabla[7] = 8;
+	tabla[8] = 9;
+	tabla[9] = 11;
+	tabla[10] = 12;
+	tabla[11] = 13;
+	ptabla = &tabla[0];
+	idx = 0;
+	while (idx < 12)
+		printf("%d\t", tabla[idx++]);
+	ft_rev_int_tab(ptabla, 12);
+	idx = 0;
+	while (idx < 12)
+		printf("%d\t", tabla[idx++]);
 }

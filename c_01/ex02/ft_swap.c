@@ -9,24 +9,17 @@
 /*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
-void	ft_swap(int *a, int *b);
-
-int	main(void)
+/* ************************************************************************** */
+/* El contenido de la direccion de memoria de A lo copio a C                  */
+/* contenido de direccion memoria B, lo copio a la direccion de memoria A.    */
+/* EL contenido de C lo copio a la direccion de memoria de B                  */
+/* ************************************************************************** */
+void	ft_swap(int *a, int *b)
 {
-	int	*pa;
-	int	*pb;
-	int	a;
-	int	b;
+	int	c;
 
-	a = 24;
-	b = 42;
-	pa = &a;
-	pb = &b;
-	printf("El valor de a es %d\n", *pa);
-	printf("El valor de b es %d\n", *pb);
-	ft_swap(pa, pb);
-	printf("El valor de a es %d\n", *pa);
-	printf("El valor de b es %d\n", *pb);
+	c = *a;
+	*a = *b;
+	*b = c;
 }

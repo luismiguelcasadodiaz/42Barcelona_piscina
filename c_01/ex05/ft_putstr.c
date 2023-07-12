@@ -9,24 +9,13 @@
 /*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+#include <unistd.h>
 
-void	ft_swap(int *a, int *b);
-
-int	main(void)
+void	ft_putstr(char *str)
 {
-	int	*pa;
-	int	*pb;
-	int	a;
-	int	b;
+	int	idx;
 
-	a = 24;
-	b = 42;
-	pa = &a;
-	pb = &b;
-	printf("El valor de a es %d\n", *pa);
-	printf("El valor de b es %d\n", *pb);
-	ft_swap(pa, pb);
-	printf("El valor de a es %d\n", *pa);
-	printf("El valor de b es %d\n", *pb);
+	idx = 0;
+	while (str[idx] != '\0')
+		write(1, &str[idx++], 1);
 }
