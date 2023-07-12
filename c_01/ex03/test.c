@@ -1,0 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*
+  INT_MAX =  2147483647 
+  INT_MIN = -2147483648
+            12345678901
+		   I need an 11 bytes string for representing any INT.
+		   plus \0 for finishing the string end ==> 12
+*/ 
+
+void	ft_print_combn(int n);
+
+int	main(void)
+{
+	ft_print_combn(2);
+}
