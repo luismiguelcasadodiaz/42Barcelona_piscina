@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:42:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/11 13:47:55 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:54:46 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 void	ft_print_reverse_alphabet();

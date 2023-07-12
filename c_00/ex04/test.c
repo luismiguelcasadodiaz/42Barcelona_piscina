@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:51:50 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/11 14:53:59 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:55:53 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -17,7 +17,7 @@ void	ft_is_negative(int n);
 int	main(void)
 {
 	printf("====== char o bien unsigned char i ben signed char========\n");
-	printf("CHAR_MIN\t\t%d\t%lubyte \n", SHRT_MIN,sizeof(SHRT_MIN));
+	printf("CHAR_MIN\t\t%d\t%lubyte \n", SHRT_MIN, sizeof(SHRT_MIN));
 	printf("CHAR_MAX\t\t%d\n", SHRT_MAX);
 	printf("UCHAR_MAX\t\t%u\n", USHRT_MAX);
 	printf("====== short o bien unsigned short========\n");
