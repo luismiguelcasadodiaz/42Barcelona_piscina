@@ -33,7 +33,23 @@ int	main(void)
 	printf("El valor de b es %d\n", b);
 	ft_div_mod(a, b, pdiv, pmod);
 	printf("El valor de la division es %d\n", *pdiv);
-	printf("El valor del resto es  es %d\n", *pmod);
+	printf("El valor del resto es  es %d\n\n", *pmod);
+	a = 24;
+	b = 0;
+	pdiv = &a;
+	pmod = &b;
 	printf("El valor de a es %d\n", a);
 	printf("El valor de b es %d\n", b);
+	ft_div_mod(a, b, pdiv, pmod);
+	printf("El valor de la division es %d\n", *pdiv);
+	printf("El valor del resto es  es %d\n\n", *pmod);
+	a = 24;
+	b = 6;
+	pdiv = NULL;
+	pmod = &b;
+	printf("El valor de a es %d\n", a);
+	printf("El valor de b es %d\n", b);
+	ft_div_mod(a, b, pdiv, pmod);
+	printf("El valor de la division es %p\n", pdiv);
+	printf("El valor del resto es  es %d\n\n", *pmod);
 }

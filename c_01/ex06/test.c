@@ -18,5 +18,7 @@ int	main(void)
 	int	num;
 
 	num = ft_strlen("Luis Miguel Casado Díaz");
-	printf("Lenght(%s)=%d", "Luis Miguel Casado Díaz", num);
+	printf("Lenght(%s)=%d\n", "Luis Miguel Casado Díaz", num);
+	num = ft_strlen(NULL);
+	printf("Lenght(%s)=%d\n", "NULL", num);
 }

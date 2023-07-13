@@ -16,4 +16,7 @@ void	ft_putstr(char *str);
 int	main(void)
 {
 	ft_putstr("Luis Miguel Casado Díaz");
+	ft_putstr("L");
+	ft_putstr("");
+	ft_putstr(NULL);
 }

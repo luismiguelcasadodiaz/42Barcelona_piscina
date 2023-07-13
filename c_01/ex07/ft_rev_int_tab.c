@@ -9,6 +9,7 @@
 /*   Updated: 2023/07/12 19:43:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
 void	ft_swap(int *a, int *b)
 {
@@ -25,12 +26,15 @@ void	ft_rev_int_tab(int *tab, int size)
 	int	idx_left;
 	int	idx_right;
 
-	half = size / 2;
-	idx_left = 0;
-	idx_right = size -1;
-	while (half > 0)
+	if (tab != NULL && size > 1)
 	{
-		ft_swap(&tab[idx_right--], &tab[idx_left++]);
-		half--;
+		half = size / 2;
+		idx_left = 0;
+		idx_right = size -1;
+		while (half > 0)
+		{
+			ft_swap(&tab[idx_right--], &tab[idx_left++]);
+			half--;
+		}
 	}
 }

@@ -17,15 +17,15 @@ void	ft_sort_int_tab(int *tab, int size);
 
 int	main(void)
 {
-	int	tabla[1];
+	int	tabla[12];
 	int	*ptabla;
 	int	idx;
 
-	tabla[0] = 22;
-	/*tabla[1] = 33;
+	tabla[0] = 66;
+	tabla[1] = 55;
 	tabla[2] = 44;
-	tabla[3] = 55;
-	tabla[4] = 66;
+	tabla[3] = 33;
+	tabla[4] = 22;
 	tabla[5] = 1212;
 	tabla[6] = 88;
 	tabla[7] = 99;
@@ -33,14 +33,23 @@ int	main(void)
 	tabla[9] = 11;
 	tabla[10] = 1111;
 	tabla[11] = 77;
-	*/ptabla = &tabla[0];
+	ptabla = &tabla[0];
 	idx = 0;
 	while (idx < 12)
 		printf("%d\t", tabla[idx++]);
 	printf("\n");
-	ft_sort_int_tab(ptabla, 12);
+	idx = *(&tabla + 1) - tabla;
+	ft_sort_int_tab(ptabla, 7);
 	idx = 0;
 	while (idx < 12)
 		printf("%d\t", tabla[idx++]);
 	printf("\n");
+	ft_sort_int_tab(ptabla, idx);
+	idx = 0;
+	while (idx < 12)
+		printf("%d\t", tabla[idx++]);
+	printf("\n");
+	ft_sort_int_tab(ptabla, 0);
+	ft_sort_int_tab(NULL, idx);
+	ft_sort_int_tab(NULL, 0);
 }

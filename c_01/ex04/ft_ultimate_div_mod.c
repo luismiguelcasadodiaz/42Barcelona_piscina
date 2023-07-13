@@ -9,20 +9,24 @@
 /*   Updated: 2023/07/12 19:37:13 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
 void	ft_ultimate_div_mod(int *a, int *b)
 {
 	int	aux;
 
-	if (b != 0)
+	if (a != NULL && b != NULL)
 	{
-		aux = *a / *b;
-		*b = *a % *b;
-		a = &aux;
-	}
-	else
-	{
-		*a = 0;
-		*b = 0;
+		if (*b != 0)
+		{
+			aux = *a / *b;
+			*b = *a % *b;
+			a = &aux;
+		}
+		else
+		{
+			*a = 0;
+			*b = 0;
+		}
 	}
 }

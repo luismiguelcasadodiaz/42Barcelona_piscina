@@ -9,6 +9,7 @@
 /*   Updated: 2023/07/12 20:38:15 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
 void	ft_swap(int *a, int *b)
 {
@@ -24,16 +25,19 @@ void	ft_sort_int_tab(int *tab, int size)
 	int	idx_out;
 	int	idx_in;
 
-	idx_out = 0;
-	while (idx_out < size)
+	if (tab != NULL && size > 1)
 	{
-		idx_in = 0;
-		while (idx_in < size - idx_out -1)
+		idx_out = 0;
+		while (idx_out < size)
 		{
-			if (tab[idx_in] > tab[idx_in + 1])
-				ft_swap(&tab[idx_in], &tab[idx_in +1]);
-			idx_in++;
+			idx_in = 0;
+			while (idx_in < size - idx_out -1)
+			{
+				if (tab[idx_in] > tab[idx_in + 1])
+					ft_swap(&tab[idx_in], &tab[idx_in +1]);
+				idx_in++;
+			}
+			idx_out++;
 		}
-		idx_out++;
 	}
 }

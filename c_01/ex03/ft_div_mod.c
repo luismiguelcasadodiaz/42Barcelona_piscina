@@ -9,17 +9,21 @@
 /*   Updated: 2023/07/12 19:36:51 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
 void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	if (b != 0)
+	if (div != NULL && mod != NULL)
 	{
-		*div = a / b;
-		*mod = a % b;
-	}
-	else
-	{
-		*div = 0;
-		*mod = 0;
+		if (b != 0)
+		{
+			*div = a / b;
+			*mod = a % b;
+		}
+		else
+		{
+			*div = 0;
+			*mod = 0;
+		}
 	}
 }
