@@ -1,14 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:30:44 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/13 19:11:31 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/12 19:37:34 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/12 19:37:38 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strcpy(char *dest, char *src);
+#include <unistd.h>
 
+void	ft_putstr(char *str)
+{
+	int	idx;
+
+	if (str != NULL)
+	{
+		idx = 0;
+		while (str[idx] != '\0')
+			write(1, &str[idx++], 1);
+	}
+}
