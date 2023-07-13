@@ -9,6 +9,8 @@
 /*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
+#include <stdio.h>
 
 /*
   INT_MAX =  2147483647 
@@ -23,4 +25,19 @@ void	ft_putnbr(int nb);
 int	main(void)
 {
 	ft_putnbr(-2147483648);
+	printf("\n");
+	ft_putnbr(-2147483647);
+	printf("\n");
+	ft_putnbr(-2147);
+	printf("\n");
+	ft_putnbr(-1);
+	printf("\n");
+	ft_putnbr(0);
+	printf("\n");
+	ft_putnbr(1);
+	printf("\n");
+	ft_putnbr(2147483646);
+	printf("\n");
+	ft_putnbr(2147483647);
+	printf("\n");
 }

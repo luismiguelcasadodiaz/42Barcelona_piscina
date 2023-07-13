@@ -13,17 +13,6 @@
 #include <unistd.h>
 #include <limits.h>
 
-void	show_sign(int nb)
-{
-	int	sign;
-
-	sign = 45;
-	if (nb < 0)
-	{
-		write(1, &sign, 1);
-	}
-}
-
 void	treat_number(int nb)
 {
 	if (nb > 9)
@@ -42,7 +31,7 @@ void	ft_putnbr(int nb)
 	{
 		write(1, "0", 1);
 	}
-	else if (nb == INT_MIN)
+	else if (INT_MIN <= nb && nb < INT_MIN + 100)
 	{
 		quo = nb / 10;
 		quo = quo * -1;
@@ -50,6 +39,11 @@ void	ft_putnbr(int nb)
 		write(1, "-", 1);
 		treat_number(quo);
 		write(1, &mod, 1);
+	}
+	else if (INT_MIN + 100 <= nb && nb < 0)
+	{
+		write(1, "-", 1);
+		treat_number(-nb);
 	}
 	else
 	{
