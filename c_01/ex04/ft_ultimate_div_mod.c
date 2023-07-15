@@ -21,7 +21,7 @@ void	ft_ultimate_div_mod(int *a, int *b)
 		{
 			aux = *a / *b;
 			*b = *a % *b;
-			a = &aux;
+			*a = aux;
 		}
 		else
 		{

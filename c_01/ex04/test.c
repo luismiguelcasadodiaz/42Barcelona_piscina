@@ -13,38 +13,31 @@
 
 void	ft_ultimate_div_mod(int *a, int *b);
 
-int	main(void)
+void	prueba(int a, int b)
 {
 	int	*pa;
 	int	*pb;
-	int	a;
-	int	b;
+	
+	pa = &a;
+	pb = &b;
+	printf("El valor de a es %d\n", a);
+	printf("El valor de b es %d\n", b);
+	printf("Su division es %d\n", a / b );
+	printf("Su resto es  es %d\n\n", a % b);
+	ft_ultimate_div_mod(pa, pb);
+	printf("Mi division es %d\n", *pa);
+	printf("Mi resto es  es %d\n\n", *pb);
+}
 
-	a = 43;
-	b = 7;
-	pa = &a;
-	pb = &b;
-	printf("El valor de a es %d\n", a);
-	printf("El valor de b es %d\n", b);
-	ft_ultimate_div_mod(pa, pb);
-	printf("El valor de la division es %d\n", *pa);
-	printf("El valor del resto es  es %d\n\n", *pb);
-	a = 43;
-	b = 0;
-	pa = &a;
-	pb = &b;
-	printf("El valor de a es %d\n", a);
-	printf("El valor de b es %d\n", b);
-	ft_ultimate_div_mod(pa, pb);
-	printf("El valor de la division es %d\n", *pa);
-	printf("El valor del resto es  es %d\n\n", *pb);
-	a = 43;
-	b = 7;
-	pa = NULL;
-	pb = &b;
-	printf("La direccion de a es %p\n", NULL);
-	printf("El valor de b es %d\n", b);
-	ft_ultimate_div_mod(pa, pb);
-	printf("El valor de la division es %p\n", NULL);
-	printf("El valor del resto es  es %d\n\n", *pb);
+int	main(void)
+{
+	prueba(43, 7);
+	prueba(43, -7);
+	prueba(-43, 7);
+	prueba(-43, -7);
+	prueba(2147483647, 7);
+	prueba(2147483647, -2147483648);
+	prueba(2147483647, 2147483648);
+	prueba(-2147483648, 2147483647);
+	prueba(43, 0);
 }
