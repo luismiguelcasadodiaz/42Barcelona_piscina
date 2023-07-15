@@ -51,10 +51,9 @@ void	show_map(int	**mapa)
 		show_row(mapa[idx_y++]);
 }
 
-	int	map[TAB_SIZE][TAB_SIZE];
-
 int	main(int argc, char **argv)
 {
+	int	map[TAB_SIZE][TAB_SIZE];
 	int	**pmap;
 
 	//fill_map(pmap);
