@@ -1,4 +1,4 @@
 #!/bin/sh
-norminette -R CheckForbiddenSourceHeader CheckDefine $1
-cc  -Wall -Wextra -Werror -o test test.c $1
-./test
+norminette -R CheckForbiddenSourceHeader  *.c
+cc  -Wall -Wextra -Werror -o rush-01 *.c 
+./rush-01
