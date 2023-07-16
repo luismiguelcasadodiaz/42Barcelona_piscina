@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_structure_b.c                                 :+:      :+:    :+:   */
+/*   array_local.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
+/*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 16:27:09 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/16 01:08:35 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/16 19:51:57 by giarodri          #+#    #+#             */
+/*   Updated: 2023/07/16 23:32:01 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -68,14 +69,15 @@ int	**create_map(int dim)
 	}
 	return (map);
 }
-
+/*
 int	main(void)
 {
 	int	**map;
 	int	dim;
 
-	dim = 6;
+	dim = 11;
 	map = create_map(dim);
 	fill_map(dim, map);
 	show_map(dim, map);
 }
+*/

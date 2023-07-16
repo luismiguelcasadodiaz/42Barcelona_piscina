@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
+/*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 19:37:34 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/12 19:37:38 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/16 19:52:55 by giarodri          #+#    #+#             */
+/*   Updated: 2023/07/16 19:53:05 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

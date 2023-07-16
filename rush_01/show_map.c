@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_structure_b.c                                 :+:      :+:    :+:   */
+/*   show_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
+/*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 16:27:09 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/16 01:08:35 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/16 19:56:34 by giarodri          #+#    #+#             */
+/*   Updated: 2023/07/16 19:56:37 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
+
 #ifndef SHOW_MAP_H
 
 # define SHOW_MAP_H
 # define MAP_SIZE    4
 # define TAB_SIZE    6
-
-# include <unistd.h>
 
 #endif
 
