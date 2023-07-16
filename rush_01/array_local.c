@@ -10,101 +10,72 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+#include <stdlib.h>
 
 //looking for the bonus
-#define MAP_SIZE    3
+#define MAP_SIZE    4
 
-// to avoid Zero Index MAP_SIZE + 1
-#define TAB_SIZE    4
-
-
-void    ft_newline(void)
-{
-    int    nl;
-
-    nl = 10;
-    write(1, &nl, 1);
-}
-
-void    ft_space(void)
-{
-    int    space;
-
-    space = 32;
-    write(1, &space, 1);
-}
-
-void    ft_print_digit(int digit)
-{
-    int    ascii_digit;
-
-    ascii_digit = 48 + digit;
-    write(1, &ascii_digit, 1);
-}
-
-int** fill_map(int map[TAB_SIZE][TAB_SIZE])
-{
-    int    idx_y;
-    int    idx_x;
-
-    idx_y = 1;
-    while (idx_y <= MAP_SIZE)
-    {
-        idx_x = 1;
-        while (idx_x <= MAP_SIZE)
-            map[idx_y][idx_x++] = 4;
-        idx_y++;
-    }
-    return (map[TAB_SIZE][TAB_SIZE]);
-}
-
+//I sorround data with conditions MAP_SIZE + 2
+#define TAB_SIZE    6
 /*
-void    show_row(int row)
-{
-    int    idx_x;
-    int    first_col;
-
-    first_col = 1;
-    idx_x = 1;
-    while (idx_x <= MAP_SIZE)
-    {
-        if (first_col == 0)
-            ft_space();
-        ft_print_digit(map[row][idx_x++]);
-        first_col = 0;
-    }
-    ft_newline();
-}
+    0 0 0 0 0 0
+    0 1 2 3 4 0
+    0 2 1 4 3 0
+	0 3 4 1 2 0
+	0 4 3 2 1 0
+	0 0 0 0 0 0
 */
 
-void    show_map(int map[TAB_SIZE][TAB_SIZE])
-{
-    int    idx_y;
-    int    idx_x;
-    int    first_col;
+void	show_map(int dim, int **map);
+void	ft_putstr(char *str);
 
-    first_col = 1;
-    idx_x = 1;
-    idx_y = 1;
-    while (idx_y <= MAP_SIZE)
-    {
-        idx_x = 1;
-        while (idx_x <= MAP_SIZE)
-        {
-            if (first_col == 0)
-                ft_space();
-            ft_print_digit(map[idx_y][idx_x++]);
-            first_col = 0;
-        }
-    ft_newline();
-    idx_y++;
-    }
+void	fill_map(int dim, int **map)
+{
+	int	idx_y;
+	int	idx_x;
+
+	idx_y = 0;
+	while (idx_y < dim)
+	{
+		idx_x = 0;
+		while (idx_x < dim)
+			map[idx_y][idx_x++] = 4;
+		idx_y++;
+	}
 }
 
-int    main()
+int	**create_map(int dim)
 {
-    int    map[TAB_SIZE][TAB_SIZE];
+	int	idx_y;
+	int	**map;
 
-    fill_map(map);
-    show_map(map);
+	map = (int **)malloc(dim * sizeof(int *));
+	if (map == NULL)
+	{
+		ft_putstr("Error:Dynamic memory allocation\n");
+		exit (1);
+	}
+	idx_y = 0;
+	while (idx_y < dim)
+	{
+		map[idx_y] = (int *)malloc(dim * sizeof(int));
+		if (map[idx_y] == NULL)
+		{
+			ft_putstr("Error:Dynamic memory allocation\n");
+			exit (1);
+		}
+		idx_y++;
+	}
+	return (map);
+}
+
+int	main(void)
+{
+	int	**map;
+	int	dim;
+
+	dim = 6;
+	map = create_map(dim);
+	fill_map(dim, map);
+	show_map(dim, map);
 }
