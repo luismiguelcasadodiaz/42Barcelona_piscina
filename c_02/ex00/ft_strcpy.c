@@ -6,11 +6,15 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:30:44 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/13 19:11:31 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/17 20:58:17 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 
+/* ************************************************************************** */
+/* ft_strlen counts all char in str but last one when it is '\0' bounded      */
+/*                                                                            */
+/* ************************************************************************** */
 int	ft_strlen(char *str)
 {
 	int	idx;
@@ -24,6 +28,10 @@ int	ft_strlen(char *str)
 	return (idx);
 }
 
+/* ************************************************************************** */
+/* ft_strcpy copies src, including '\0' into dst.                             */
+/*                                                                            */
+/* ************************************************************************** */
 char	*ft_strcpy(char *dest, char *src)
 {
 	int	idx;
@@ -32,7 +40,6 @@ char	*ft_strcpy(char *dest, char *src)
 	if (src != NULL && dest != NULL)
 	{
 		src_size = ft_strlen(src);
-		//dest = (char *)malloc((src_size +1) * sizeof(char));
 		idx = 0;
 		while (idx <= src_size)
 		{
