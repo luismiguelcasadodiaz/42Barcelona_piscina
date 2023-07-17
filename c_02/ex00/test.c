@@ -9,47 +9,68 @@
 /*   Updated: 2023/07/13 18:32:25 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char *ft_strcpy(char *dest, char *src);
+char	*ft_strcpy(char *dest, char *src);
+
+void	prueba(char	*dst, char*src)
+{
+	char	mydst;
+	char	mysrc;
+	char	sydst;
+	char	sysrc;
+	char	*pmydst;
+	char	*pmysrc;
+	char	*psydst;
+	char	*psysrc;
+
+	pmydst = &mydst;
+	pmysrc = &mysrc;
+	psydst = &sydst;
+	psysrc = &sysrc;
+	*pmydst = *dst;
+	*pmysrc = *src;
+	*psydst = *dst;
+	*psysrc = *src;
+	printf("======= Punto de partida ======\n");
+	printf("SRC = %s\n", src);
+	printf("DST = %s\n", dst);
+	printf("======= Resultado  LMCD  ======\n");
+	printf("ANTE SRC = %s\n", src);
+	printf("ANTE DST = %s\n", dst);
+	ft_strcpy(pmydst, src);
+	printf("POST SRC = %s\n", src);
+	printf("POST DST = %s\n", dst);
+	printf("======= Resultado SYSTEM ======\n");
+	printf("ANTE SRC = %s\n", src);
+	printf("ANTE DST = %s\n", pmydst);
+	strcpy(psydst, src);
+	printf("POST SRC = %s\n", src);
+	printf("POST DST = %s\n", psydst);
+}
 
 int	main(void)
 {
-	int	tabla[12];
-	int	*ptabla;
-	int	idx;
+	char	*ps;
+	char	*pd;
+	char	s10[10] = "Alfonsoca";
+	char	s01[1] = "L";
+	char	s00[10];
+	char	d10[10];
+	char	d01[1];
 
-	tabla[0] = 66;
-	tabla[1] = 55;
-	tabla[2] = 44;
-	tabla[3] = 33;
-	tabla[4] = 22;
-	tabla[5] = 1212;
-	tabla[6] = 88;
-	tabla[7] = 99;
-	tabla[8] = 1010;
-	tabla[9] = 11;
-	tabla[10] = 1111;
-	tabla[11] = 77;
-	ptabla = &tabla[0];
-	idx = 0;
-	while (idx < 12)
-		printf("%d\t", tabla[idx++]);
-	printf("\n");
-	idx = *(&tabla + 1) - tabla;
-	ft_sort_int_tab(ptabla, 7);
-	idx = 0;
-	while (idx < 12)
-		printf("%d\t", tabla[idx++]);
-	printf("\n");
-	ft_sort_int_tab(ptabla, idx);
-	idx = 0;
-	while (idx < 12)
-		printf("%d\t", tabla[idx++]);
-	printf("\n");
-	ft_sort_int_tab(ptabla, 0);
-	ft_sort_int_tab(NULL, idx);
-	ft_sort_int_tab(NULL, 0);
+	ps = &s10[0];
+	pd = &d10[0];
+	prueba(pd, ps);
+	ps = &s10[0];
+	pd = &d01[0];
+	prueba(pd, ps);
+	ps = &s00[0];
+	pd = &d10[0];
+	prueba(pd, ps);
+	ps = &s01[0];
+	pd = &d10[0];
+	prueba(pd, ps);
 }
