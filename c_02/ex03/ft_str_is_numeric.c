@@ -9,6 +9,39 @@
 /*   Updated: 2023/07/13 18:35:08 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+int	ft_in_rng(int min, int max, int c)
+{
+	if (min <= c && c <= max)
+		return (1);
+	else
+		return (0);
+}
 
-int ft_str_is_numeric(char *str);
+int	ft_numer_char(int c)
+{
+	return (ft_in_rng(48, 57, c));
+}
 
+int	ft_str_is_numeric(char *str)
+{
+	int	idx;
+	int	solution;
+
+	solution = 0;
+	if (str[0] != '\0')
+	{
+		solution = 1;
+		idx = 0;
+		while (str[idx] != '\0')
+		{
+			if (ft_numer_char((int)str[idx]))
+				idx++;
+			else
+			{
+				solution = 0;
+				break ;
+			}
+		}
+	}
+	return (solution);
+}

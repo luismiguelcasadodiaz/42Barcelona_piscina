@@ -9,6 +9,46 @@
 /*   Updated: 2023/07/13 18:38:09 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+int	ft_in_rng(int min, int max, int c)
+{
+	if (min <= c && c <= max)
+		return (1);
+	else
+		return (0);
+}
 
-int ft_str_is_printable(char *str);
+int	ft_print_char(int c)
+{
+	int	result;
 
+	result = 0;
+	result += ft_in_rng(32, 47, c);
+	result += ft_in_rng(58, 64, c);
+	result += ft_in_rng(91, 96, c);
+	result += ft_in_rng(123, 126, c);
+	return (result);
+}
+
+int	ft_str_is_printable(char *str)
+{
+	int	idx;
+	int	solution;
+
+	solution = 0;
+	if (str[0] != '\0')
+	{
+		solution = 1;
+		idx = 0;
+		while (str[idx] != '\0')
+		{
+			if (ft_print_char((int)str[idx]))
+				idx++;
+			else
+			{
+				solution = 0;
+				break ;
+			}
+		}
+	}
+	return (solution);
+}

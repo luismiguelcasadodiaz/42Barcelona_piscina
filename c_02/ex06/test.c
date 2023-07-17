@@ -6,50 +6,41 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/13 18:38:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:35:23 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* ************************************************************************** */
+#include <unistd.h>
 
-#include <stdio.h>
+void	ft_putstr(char *str)
+{
+	int	idx;
+
+	if (str != NULL)
+	{
+		idx = 0;
+		while (str[idx] != '\0')
+			write(1, &str[idx++], 1);
+	}
+}
 
 int ft_str_is_printable(char *str);
 
 int	main(void)
 {
-	int	tabla[12];
-	int	*ptabla;
-	int	idx;
-
-	tabla[0] = 66;
-	tabla[1] = 55;
-	tabla[2] = 44;
-	tabla[3] = 33;
-	tabla[4] = 22;
-	tabla[5] = 1212;
-	tabla[6] = 88;
-	tabla[7] = 99;
-	tabla[8] = 1010;
-	tabla[9] = 11;
-	tabla[10] = 1111;
-	tabla[11] = 77;
-	ptabla = &tabla[0];
-	idx = 0;
-	while (idx < 12)
-		printf("%d\t", tabla[idx++]);
-	printf("\n");
-	idx = *(&tabla + 1) - tabla;
-	ft_sort_int_tab(ptabla, 7);
-	idx = 0;
-	while (idx < 12)
-		printf("%d\t", tabla[idx++]);
-	printf("\n");
-	ft_sort_int_tab(ptabla, idx);
-	idx = 0;
-	while (idx < 12)
-		printf("%d\t", tabla[idx++]);
-	printf("\n");
-	ft_sort_int_tab(ptabla, 0);
-	ft_sort_int_tab(NULL, idx);
-	ft_sort_int_tab(NULL, 0);
+	if (ft_str_is_printable(".,:;"))
+		ft_putstr("Is printable\n");
+	else
+		ft_putstr("Is no printable\n");
+	if (ft_str_is_printable(".,)2"))
+		ft_putstr("Is printable\n");
+	else
+		ft_putstr("Is no printable\n");
+	if (ft_str_is_printable("!#CD"))
+		ft_putstr("Is printable\n");
+	else
+		ft_putstr("Is no printable\n");
+	if (ft_str_is_printable(""))
+		ft_putstr("Is printable\n");
+	else
+		ft_putstr("Is no printable\n");
 }
