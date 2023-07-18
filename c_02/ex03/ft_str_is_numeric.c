@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:34:52 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/13 18:35:08 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/18 20:07:21 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_in_rng(int min, int max, int c)
@@ -43,5 +43,7 @@ int	ft_str_is_numeric(char *str)
 			}
 		}
 	}
+	else
+		solution = 1;
 	return (solution);
 }
