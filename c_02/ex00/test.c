@@ -9,76 +9,234 @@
 /*   Updated: 2023/07/17 20:20:08 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 
 char	*ft_strcpy(char *dest, char *src);
 
-void	prueba(char	*dst, char*src, int size_dst, int size_src)
+void	ft_putstr(char *str)
 {
-	char	mydst[size_dst];
-	char	mysrc[size_src];
-	char	sydst[size_dst];
-	char	sysrc[size_src];
-	char	*pmydst;
-	char	*pmysrc;
-	char	*psydst;
-	char	*psysrc;
+	int	idx;
 
-	pmydst = &mydst[0];
-	pmysrc = &mysrc[0];
-	psydst = &sydst[0];
-	psysrc = &sysrc[0];
-	strcpy(pmysrc, src);
-	strcpy(psysrc, src);
-	printf("======= Punto de partida ======\n");
-	printf("SRC >%s<\n", src);
-	printf("DST >%s<\n", dst);
-	printf("======= Resultado  LMCD  ======\n");
-	printf("ANTE SRC >%s<\n", pmysrc);
-	printf("ANTE DST >%s<\n", pmydst);
-	ft_strcpy(pmydst, src);
-	printf("POST SRC >%s<\n", pmysrc);
-	printf("POST DST >%s<\n", pmydst);
-	printf("======= Resultado SYSTEM ======\n");
-	printf("ANTE SRC >%s<\n", psysrc);
-	printf("ANTE DST >%s<\n", psydst);
-	strcpy(psydst, src);
-	printf("POST SRC >%s<\n", psysrc);
-	printf("POST DST >%s<\n", psydst);
+	if (str != NULL)
+	{
+		idx = 0;
+		while (str[idx] != '\0')
+			write(1, &str[idx++], 1);
+	}
 }
 
+/* dst is                nine plus end*/
+/* src is "Alfonsoca\0"  nine plus end*/
+void	prueba_10_10()
+{
+	const int	nd = 10;
+	const int	ns = 10;
+	char		*pd;
+	char		*ps;
+	char		d[nd];
+	char		s[ns];
+	char		*pmid;
+	char		*pmis;
+	char		mid[nd];
+	char		mis[ns];
+
+	pd = &d[0];
+	ps = &s[0];
+	strcpy(ps, "Alfonsoca");
+	pmid = &mid[0];
+	pmis = &mis[0];
+	strcpy(pmis, "Alfonsoca");
+	if (strcmp(strcpy(pd, ps), ft_strcpy(pmid, pmis)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
+	else
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+}
+
+/* dst is                nine plus end*/
+/* src is "A\0"           one plus end*/
+void	prueba_10_02()
+{
+	const int	nd = 10;
+	const int	ns = 2;
+	char		*pd;
+	char		*ps;
+	char		d[nd];
+	char		s[ns];
+	char		*pmid;
+	char		*pmis;
+	char		mid[nd];
+	char		mis[ns];
+
+	pd = &d[0];
+	ps = &s[0];
+	strcpy(ps, "A");
+	pmid = &mid[0];
+	pmis = &mis[0];
+	strcpy(pmis, "A");
+	if (strcmp(strcpy(pd, ps), ft_strcpy(pmid, pmis)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
+	else
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+}
+
+/* dst is                 one plus end*/
+/* src is "A\0"          nine plus end*/
+void	prueba_02_10()
+{
+	const int	nd = 2;
+	const int	ns = 10;
+	char		*pd;
+	char		*ps;
+	char		d[nd];
+	char		s[ns];
+	char		*pmid;
+	char		*pmis;
+	char		mid[nd];
+	char		mis[ns];
+
+	pd = &d[0];
+	ps = &s[0];
+	strcpy(ps, "Alfonsoca");
+	pmid = &mid[0];
+	pmis = &mis[0];
+	strcpy(pmis, "Alfonsoca");
+	if (strcmp(strcpy(pd, ps), ft_strcpy(pmid, pmis)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
+	else
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+}
+/* dst is                nine plus end*/
+/* src is "\0"                only end*/
+void	prueba_10_01()
+{
+	const int	nd = 10;
+	const int	ns = 1;
+	char		*pd;
+	char		*ps;
+	char		d[nd];
+	char		s[ns];
+	char		*pmid;
+	char		*pmis;
+	char		mid[nd];
+	char		mis[ns];
+
+	pd = &d[0];
+	ps = &s[0];
+	strcpy(ps, "");
+	pmid = &mid[0];
+	pmis = &mis[0];
+	strcpy(pmis, "");
+	if (strcmp(strcpy(pd, ps), ft_strcpy(pmid, pmis)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
+	else
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+}
+
+/* dst is                 one plus end*/
+/* src is "Alfonsoca\0"  nine plus end*/
+void	prueba_01_10()
+{
+	const int	nd = 1;
+	const int	ns = 10;
+	char		*pd;
+	char		*ps;
+	char		d[nd];
+	char		s[ns];
+	char		*pmid;
+	char		*pmis;
+	char		mid[nd];
+	char		mis[ns];
+
+	pd = &d[0];
+	ps = &s[0];
+	strcpy(ps, "");
+	pmid = &mid[0];
+	pmis = &mis[0];
+	strcpy(pmis, "");
+	if (strcmp(strcpy(pd, ps), ft_strcpy(pmid, pmis)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
+	else
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+}
+
+/* dst is                nine plus end*/
+/* src is                         NULL*/
+void	prueba_10_NU()
+{
+	const int	nd = 10;
+	const int	ns = 10;
+	char		*pd;
+	char		*ps;
+	char		d[nd];
+	char		s[ns];
+	char		*pmid;
+	char		*pmis;
+	char		mid[nd];
+	char		mis[ns];
+
+	pd = &d[0];
+	ps = &s[0];
+	//strcpy(ps, "");
+	pmid = &mid[0];
+	pmis = &mis[0];
+	//strcpy(pmis, "");
+	ps = NULL;
+	pmis = NULL;
+	ft_strcpy(pd, ps);  // <-Change to see Segmentation Fault
+	if (strcmp(strcpy(pd, ps), ft_strcpy(pmid, pmis)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
+	else
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+}
+
+/* dst is                         NULL*/
+/* src is "Alfonsoca\0"  nine plus end*/
+void	prueba_NU_10()
+{
+	const int	nd = 1;
+	const int	ns = 10;
+	char		*pd;
+	char		*ps;
+	char		d[nd];
+	char		s[ns];
+	char		*pmid;
+	char		*pmis;
+	char		mid[nd];
+	char		mis[ns];
+
+	pd = &d[0];
+	ps = &s[0];
+	strcpy(ps, "Alfonsoca");
+	pmid = &mid[0];
+	pmis = &mis[0];
+	strcpy(pmis, "Alfonsoca");
+	pd = NULL;
+	pmid = NULL;
+	ft_strcpy(pd, ps);// <-Change to see Segmentation Fault
+	if (strcmp(strcpy(pd, ps), ft_strcpy(pmid, pmis)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
+	else
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+}
 int	main(void)
 {
-	char	*ps;
-	char	*pd;
-	char	s10[10];
-	char	d10[10];
-	char	s01[1];
-	char	s00[10];
-	char	d01[1];
 
-	ps = &s10[0];
-	pd = &d10[0];
-	strcpy(ps, "Alfonsoca");
-	prueba(pd, ps, 10, 10);
-	
-	ps = &s10[0];
-	pd = &d01[0];
-	strcpy(ps, "Luis Miguel");
-	prueba(pd, ps, 1, 10);
-	
-	ps = &s00[0];
-	pd = &d10[0];
-	strcpy(ps, "");
-	prueba(pd, ps, 10, 0);
-	
-	ps = &s01[0];
-	pd = &d10[0];
-	strcpy(ps, "X");
-	prueba(pd, ps, 10, 1);
-	
-	
+	prueba_10_10();
+	prueba_10_02();
+	prueba_02_10();
+	prueba_10_01();
+	prueba_01_10();
+	//prueba_10_NU();
+//	prueba_NU_10();
+	//prueba_NU_NU();
 	return (0);
 }

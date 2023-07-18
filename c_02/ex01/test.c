@@ -6,81 +6,108 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/17 21:09:39 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/17 20:20:08 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
-void	prueba(char	*dst, char*src, int size_dst, int size_src)
+void	ft_putstr(char *str)
 {
-	char	mydst[size_dst];
-	char	mysrc[size_src];
-	char	sydst[size_dst];
-	char	sysrc[size_src];
-	char	*pmydst;
-	char	*pmysrc;
-	char	*psydst;
-	char	*psysrc;
+	int	idx;
 
-	pmydst = &mydst[0];
-	pmysrc = &mysrc[0];
-	psydst = &sydst[0];
-	psysrc = &sysrc[0];
-	strcpy(pmysrc, src);
-	strcpy(psysrc, src);
-	printf("======= Punto de partida ======\n");
-	printf("SRC >%s<\n", src);
-	printf("DST >%s<\n", dst);
-	printf("======= Resultado  LMCD  ======\n");
-	printf("ANTE SRC >%s<\n", pmysrc);
-	printf("ANTE DST >%s<\n", pmydst);
-	printf("POST SRC >%s<\n", pmysrc);
-	printf("POST DST >%s<\n", pmydst);
-	printf("======= Resultado SYSTEM ======\n");
-	printf("ANTE SRC >%s<\n", psysrc);
-	printf("ANTE DST >%s<\n", psydst);
-	printf("POST SRC >%s<\n", psysrc);
-	printf("POST DST >%s<\n", psydst);
-	if (strcmp(ft_strncpy(pmydst, src, n), strncpy(psydst, src, n)))
-		printf("ft_strncpy does not emulate strncpy");
+	if (str != NULL)
+	{
+		idx = 0;
+		while (str[idx] != '\0')
+			write(1, &str[idx++], 1);
+	}
+}
+
+/* dst is                nd-1 plus end*/
+/* src is txt            ns-1 plus end*/
+/* nc in char number to copy          */
+/*void	prueba(int nd, int ns, char *txt, unsigned int nc)
+{
+	char		*pd;
+	char		*ps;
+	char		d[nd];
+	char		s[ns];
+	char		*pmid;
+	char		*pmis;
+	char		mid[nd];
+	char		mis[ns];
+	char		*pmir;
+	char		*pr;
+
+	pd = &d[0];
+	ps = &s[0];
+	strcpy(ps, txt);
+	pmid = &mid[0];
+	pmis = &mis[0];
+	strcpy(pmis, txt);
+	pmir = ft_strncpy(pmid, pmis, nc);
+	pr = strncpy(pd, ps, nc);
+	printf(">%s<\n",pr);
+	printf(">%s<\n",pmir);
+	if (strcmp(strncpy(pd, ps, nc), ft_strncpy(pmid, pmis, nc)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
 	else
-		printf("ft_strncpy emulate strncopy");
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+}
+*/
+
+void	prueba(char *txt, unsigned int nc)
+{
+	char		*pd;
+	char		*ps;
+	char		*pmid;
+	char		*pmis;
+	char		*pmir;
+	char		*prr;
+	int			ns;
+
+	ns = strlen(txt);
+	pd = (char *)malloc((nc +1) * sizeof(char));
+	ps = (char *)malloc((ns +1) * sizeof(char));
+	strcpy(ps, txt);
+	pmid = (char *)malloc((nc +1) * sizeof(char));
+	pmis = (char *)malloc((ns +1) * sizeof(char));
+	strcpy(pmis, txt);
+	pmir = (char *)malloc((nc +1) * sizeof(char));
+	pmir = ft_strncpy(pmid, pmis, nc);
+	prr = (char *)malloc((nc +1) * sizeof(char));
+	prr = strncpy(pd, ps, nc);
+	printf(">%s<\n",prr);
+	printf(">%s<\n",pmir);
+	if (strcmp(strncpy(pd, ps, nc), ft_strncpy(pmid, pmis, nc)))
+		ft_putstr("Mi función \033[1;91mno emula al sistema\n");
+	else
+		ft_putstr("Mi Funcion \033[1;92memula al sistema,\n");
+	ft_putstr("\033[0m");
+	//free(pd);
+	//free(ps);
+	//free(pmid);
+	//free(pmis);
+	//free(pmir);
+	//free(prr);
 }
 
 int	main(void)
 {
-	char	*ps;
-	char	*pd;
-	char	s10[10];
-	char	d10[10];
-	char	s01[1];
-	char	s00[10];
-	char	d01[1];
-
-	ps = &s10[0];
-	pd = &d10[0];
-	strcpy(ps, "Alfonsoca");
-	prueba(pd, ps, 10, 10);
-	
-	ps = &s10[0];
-	pd = &d01[0];
-	strcpy(ps, "Luis Miguel");
-	prueba(pd, ps, 1, 10);
-	
-	ps = &s00[0];
-	pd = &d10[0];
-	strcpy(ps, "");
-	prueba(pd, ps, 10, 0);
-	
-	ps = &s01[0];
-	pd = &d10[0];
-	strcpy(ps, "X");
-	prueba(pd, ps, 10, 1);
-	
-	
+	prueba("Alfonsoca", 1);
+	prueba("Alfonsoca", 10);
+	prueba("Alfonsoca", 13);
+	prueba("DCBA", 1);
+	prueba("DCBA", 5);
+	prueba("DCBA", 7);
+	//prueba_10_NU();
+//	prueba_NU_10();
+	//prueba_NU_NU();
 	return (0);
 }
