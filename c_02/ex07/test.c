@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/18 21:33:11 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:08:25 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -36,7 +36,7 @@ int	main(void)
 	char	t4[] = "=Hola 12caracola";
 	char	t5[] = "Hola caracola";
 
-	p1 = (char *)malloc( 5 * sizeof(char));
+	p1 = (char *)malloc(5 * sizeof(char));
 	strcpy(p1, "abcd");
 	ft_putstr((ft_strupcase(p1)));
 	free(p1);

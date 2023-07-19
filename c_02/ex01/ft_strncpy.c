@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:32:58 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/17 21:00:09 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:43:02 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -47,8 +47,8 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 			dest[idx] = src[idx];
 			idx++;
 		}
-		if (idx < n)
-			dest[idx] = '\0';
+		while (idx < n)
+			dest[idx++] = '\0';
 	}
 	return (dest);
 }

@@ -6,9 +6,11 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:37:52 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/18 20:14:30 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:51:43 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
+
 int	ft_in_rng(int min, int max, int c)
 {
 	if (min <= c && c <= max)
@@ -19,14 +21,7 @@ int	ft_in_rng(int min, int max, int c)
 
 int	ft_print_char(int c)
 {
-	int	result;
-
-	result = 0;
-	result += ft_in_rng(32, 47, c);
-	result += ft_in_rng(58, 64, c);
-	result += ft_in_rng(91, 96, c);
-	result += ft_in_rng(123, 126, c);
-	return (result);
+	return (ft_in_rng(32, 126, c));
 }
 
 int	ft_str_is_printable(char *str)
@@ -34,23 +29,25 @@ int	ft_str_is_printable(char *str)
 	int	idx;
 	int	solution;
 
-	solution = 0;
-	if (str[0] != '\0')
+	solution = 1;
+	if (str != NULL)
 	{
-		solution = 1;
-		idx = 0;
-		while (str[idx] != '\0')
+		solution = 0;
+		if (str[0] != '\0')
 		{
-			if (ft_print_char((int)str[idx]))
-				idx++;
-			else
+			solution = 1;
+			idx = -1;
+			while (str[++idx] != '\0')
 			{
-				solution = 0;
-				break ;
+				if (!ft_print_char((int)str[idx]))
+				{
+					solution = 0;
+					break ;
+				}
 			}
 		}
+		else
+			solution = 1;
 	}
-	else
-		solution = 1;
 	return (solution);
 }

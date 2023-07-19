@@ -6,24 +6,10 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:38:46 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/18 21:33:13 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:16:16 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-#include <unistd.h>
-
-int	ft_strlen(char *str)
-{
-	int	idx;
-
-	idx = 0;
-	if (str != NULL)
-	{
-		while (str[idx] != '\0')
-			idx++;
-	}
-	return (idx);
-}
 
 int	ft_in_rng(int min, int max, int c)
 {
