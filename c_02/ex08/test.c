@@ -6,10 +6,12 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/18 19:56:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:14:20 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
 
 void	ft_putstr(char *str)
 {
@@ -27,11 +29,20 @@ char	*ft_strlowcase(char *str);
 
 int	main(void)
 {
-	ft_putstr((ft_strlowcase("a\n")));
-	ft_putstr((ft_strlowcase("abCD\n")));
-	ft_putstr((ft_strlowcase("")));
-	ft_putstr((ft_strlowcase("ABi,d\n")));
-	ft_putstr((ft_strlowcase("1234\n")));
-	ft_putstr((ft_strlowcase("qwEerY_tyuiop\n")));
-	ft_putstr((ft_strlowcase("zxcvbnm,./ABCD\n")));
+	char	t1[] = "Hola caracola";
+	char	*p1;
+	char	t2[] = "\n";
+	char	t3[] = "zxcvbnm,./ABCD\n";
+	char	t4[] = "=Hola 12caracola";
+	char	t5[] = "Hola caracola";
+
+	p1 = (char *)malloc( 5 * sizeof(char));
+	strcpy(p1, "abcd");
+	ft_putstr((ft_strlowcase(p1)));
+	free(p1);
+	ft_putstr((ft_strlowcase(t1)));
+	ft_putstr((ft_strlowcase(t2)));
+	ft_putstr((ft_strlowcase(t3)));
+	ft_putstr((ft_strlowcase(t4)));
+	ft_putstr((ft_strlowcase(t5)));
 }
