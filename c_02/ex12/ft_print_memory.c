@@ -44,63 +44,55 @@ int	ft_print_char(int c)
 	return (ft_in_rng(32, 126, c));
 }
 
-void	ft_putstr_non_printable(char *str)
+void	ft_putstr_non_printable(char *str, int numchars)
 {
 	int	idx;
-	int	nl;
-
-	nl = 10;
+	int space;
+	
+	space = 32;
 	if (str != NULL)
 	{
 		idx = -1;
-		while (str[++idx] != '\0')
+		write(1, &space, 1);
+		while (str[++idx] != '\0' && idx < numchars)
 		{
 			if (ft_print_char((int)str[idx]))
 				write(1, &str[idx], 1);
 			else
 				ft_hex_of((int)str[idx], 0);
 		}
-		write(1, &nl, 1);
 	}
 }
+
 void	ft_show_hex_num(long long ll, int deep)
 {
-		if (ll > 16)
-		{
-			ft_show_hex_num( ll / 16, deep + 1);
-			if (deep < 7)
-				ft_hex_of(0,2);	
-		}
-		ft_hex_of(ll, 2);
+	if (ll > 16)
+		ft_show_hex_num(ll / 16, deep + 1);
+	if (deep > 11)
+		ft_hex_of(0, 2);
+	ft_hex_of(ll, 2);
+
 }
-
-
-void	ft_show_address(void *addr)
-{
-		long long 	ll;
-		int			deep;
-
-		deep = 0;
-		ll = (long long)addr;
-		printf("address 1 = %p\n", addr);
-		printf("address 2 = %lld\n", ll);
-		ft_show_hex_num(ll, deep);
-		printf("\n");
-}
-		//ft_putstr_non_printable((char *)&(addr + (line * 16)));
 		//ft_show_hex(&(addr + (line * 16)));
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned int	num_lines;
 	unsigned int	line;
+	long long		ll;
+	int				deep;
 
+	deep = 0;
+	ll = (long long)addr;
 	num_lines = 0;
-	num_lines = size % 16;
+	num_lines = size / 16;
 	line = 0;
-	while (line < size)
+	while (line < num_lines)
 	{
-		ft_show_address(addr);
+		ft_show_hex_num(ll, deep);
+		ft_putstr_non_printable((char *)ll, 16);
+		printf("\n");
 		line++;
-}
+		ll += 16;
+		}
 	return (addr);
 }

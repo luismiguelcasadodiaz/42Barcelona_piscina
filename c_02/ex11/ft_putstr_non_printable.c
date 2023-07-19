@@ -45,9 +45,14 @@ int	ft_in_rng(int min, int max, int c)
 		return (0);
 }
 
-int	ft_print_char(int c)
+int	ft_non_print_char(int c)
 {
-	return (ft_in_rng(32, 126, c));
+	int	result;
+
+	result = 0;
+	result += ft_in_rng(0, 31, c);
+	result += ft_in_rng(127, 127, c);
+	return (result);
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -59,10 +64,10 @@ void	ft_putstr_non_printable(char *str)
 		idx = -1;
 		while (str[++idx] != '\0')
 		{
-			if (ft_print_char((int)str[idx]))
-				write(1, &str[idx], 1);
-			else
+			if (ft_non_print_char((int)str[idx]))
 				ft_hex_of((int)str[idx], 1);
+			else
+				write(1, &str[idx], 1);
 		}
 	}
 }

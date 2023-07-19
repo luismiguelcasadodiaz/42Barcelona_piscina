@@ -34,7 +34,7 @@ int	main(void)
 	char	t2[] = "\n";
 	char	t3[] = "zxcvbnm,./ABCD\n";
 	char	t4[] = "=Hola 12caracola\n";
-	char	t5[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	char	t5[] = "  salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 
 	p1 = (char *)malloc( 5 * sizeof(char));
 	strcpy(p1, "abcd");

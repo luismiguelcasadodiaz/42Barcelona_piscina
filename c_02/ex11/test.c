@@ -30,8 +30,12 @@ char	*ft_putstr_non_printable(char *str);
 int	main(void)
 {
 	char	t5[] = "  salut, c\aomm\bent tu vas ? 42\tmots quarante\r-deux; cinquante+et+un";
+	char	t6[] = "Coucou\ntu vas bien ?";
 
 	ft_putstr(t5);
 	ft_putstr("\n");
 	ft_putstr_non_printable(t5);
+	ft_putstr(t6);
+	ft_putstr("\n");
+	ft_putstr_non_printable(t6);
 }

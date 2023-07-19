@@ -21,7 +21,12 @@ int	ft_in_rng(int min, int max, int c)
 
 int	ft_alpha_char(int c)
 {
-	return (ft_in_rng(32, 126, c));
+	int	result = 0;
+
+	result = 0;
+	result += ft_in_rng(64,  90, c)
+	result += ft_in_rng(97, 122, c)
+	return (result);
 }
 
 int	ft_str_is_alpha(char *str)

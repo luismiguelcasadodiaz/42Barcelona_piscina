@@ -67,8 +67,8 @@ char	*ft_strcapitalize(char *str)
 
 	if (str != NULL)
 	{
-		in_word = 1;
-		first_c = 1;
+		in_word = 0;
+		first_c = 0;
 		idx = -1;
 		while (str[++idx] != '\0')
 			str[idx] = treat_char((int)str[idx], &in_word, &first_c);
