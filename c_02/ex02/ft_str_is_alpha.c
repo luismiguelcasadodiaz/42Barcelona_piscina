@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:33:56 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/19 10:01:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:22:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -21,11 +21,11 @@ int	ft_in_rng(int min, int max, int c)
 
 int	ft_alpha_char(int c)
 {
-	int	result = 0;
+	int	result;
 
 	result = 0;
-	result += ft_in_rng(64,  90, c)
-	result += ft_in_rng(97, 122, c)
+	result += ft_in_rng(64, 90, c);
+	result += ft_in_rng(97, 122, c);
 	return (result);
 }
 

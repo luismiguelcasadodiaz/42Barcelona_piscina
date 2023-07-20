@@ -6,11 +6,11 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/19 16:07:17 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/20 18:36:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-
+#include <string.h>
 void *ft_print_memory(void *addr, unsigned int size);
 
 int	main(void)
@@ -19,6 +19,6 @@ int	main(void)
 	void	*p_t5;
 
 	p_t5 = (void *)&t5;
-	p_t5 = ft_print_memory(p_t5, 16 * 9);
+	p_t5 = ft_print_memory(p_t5, strlen(p_t5));
 	return (0);
 }
