@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/21 12:50:52 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/21 13:57:50 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -53,11 +53,11 @@ void	prueba(char *txt1, char *txt2, int n)
 
 int	main(void)
 {
-	//prueba("", "Alfonsoca", 1);
-	//prueba("", "Alfonsoca", 2);
-	//prueba("", "Alfonsoca", 3);
-	//prueba("A", "Alfonsoca", 1);
-	//prueba("B", "Alfonsoca", 1);
+	prueba("", "Alfonsoca", 1);
+	prueba("", "Alfonsoca", 2);
+	prueba("", "Alfonsoca", 3);
+	prueba("A", "Alfonsoca", 1);
+	prueba("B", "Alfonsoca", 1);
 	prueba("A", "Alfonsoca", 2);
 	prueba("A", "Alfonsoca", 3);
 	prueba("Alfonsoca", "Alfonsoca", 1);
