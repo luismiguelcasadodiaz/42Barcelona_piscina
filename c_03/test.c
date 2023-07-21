@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/21 10:23:48 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:04:26 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -70,9 +70,6 @@ int	main(void)
 	prueba("DCBA", 1);
 	prueba("DCBA", 5);
 	prueba("DCBA", 7);
-	prueba("", 1);
-	prueba("", 5);
-	prueba("", 7);
 	//prueba_10_NU();
 //	prueba_NU_10();
 	//prueba_NU_NU();
