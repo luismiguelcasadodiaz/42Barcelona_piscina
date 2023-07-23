@@ -6,9 +6,10 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 19:46:59 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/22 21:22:18 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/23 23:51:42 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 #include <stdlib.h>
 #include "textsaux.h"
 
@@ -53,6 +54,25 @@ char	*ft_strcpy(char *dest, char *src)
 }
 
 /* ************************************************************************** */
+/* ft_strcmp travels both string till finds a differences                     */
+/*            null termitates the copy                                        */
+/* RETURNS    size of src string.                                             */
+/* ************************************************************************** */
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	idx;
+
+	idx = -1;
+	if (s1 != NULL && s2 != NULL)
+	{
+		while (s1[++idx] != '\0' && s2[idx] != '\0' && s1[idx] == s2[idx])
+		{
+		}
+	}
+	return (s1[idx] - s2[idx]);
+}
+
+/* ************************************************************************** */
 /* process_str  extrats from a string all text chunks separated by any of     */
 /*              the char inside charset.                                      */
 /*                                                                            */
@@ -89,7 +109,5 @@ char	**process_str(char *str, char *charset, char **items)
 		}
 		idx_str++;
 	}
-	items[idx_items++] = extract(str, init, idx_str-- -1, &in_w);
-	items[idx_items] = set_end_item();
 	return (items);
 }

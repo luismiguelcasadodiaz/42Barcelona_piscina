@@ -6,36 +6,42 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 18:42:01 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/23 18:04:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/23 23:33:34 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 #include <unistd.h>
 #include "rules.h"
+#include "memory.h"
 
-char	*allocate_buffer_char(int size)
+struct s_key_value	*allocate_s_key_value(int s_txt, int s_trans)
 {
-	char	*buffer;
+	struct s_key_value	*buffer;
 
-	buffer = (char *)malloc(size);
+	buffer = (struct s_key_value *)malloc(sizeof(struct s_key_value));
 	if (buffer == NULL)
 	{
 		write(2, &"Error memory allocation.\n", 25);
 		return (buffer);
 	}
+	buffer->key_txt = allocate_buffer_char(s_txt);
+	buffer->key_num = 0;
+	buffer->trans = allocate_buffer_char(s_trans);
 	return (buffer);
 }
 
-void	de_allocate_buffer_char(char *buffer)
+void	de_allocate_s_key_value(struct s_key_value *key)
 {
-	free(buffer);
+	de_allocate_buffer_char(key->key_txt);
+	de_allocate_buffer_char(key->trans);
+	free(key);
 }
 
-char	**allocate_buff_buff_char(int size)
+struct s_key_value	**allocate_dict(int size)
 {
-	char	**buffers;
+	struct s_key_value	**buffers;
 
-	buffers = (char **)malloc(size * sizeof(char *));
+	buffers = (struct s_key_value **)malloc(size * sizeof(struct s_key_value *));
 	if (buffers == NULL)
 	{
 		write(2, &"Error memory allocation.\n", 25);
@@ -44,14 +50,14 @@ char	**allocate_buff_buff_char(int size)
 	return (buffers);
 }
 
-void	de_allocate_buff_buff_char(char **buffer, int size)
+void	de_allocate_dict(struct s_key_value **dict, int size)
 {
 	int	idx;
 
 	idx = 0;
 	while (idx < size)
 	{
-		de_allocate_buffer_char(buffer[idx++]);
+		de_allocate_s_key_value(dict[idx++]);
 	}
-	free(buffer);
+	free(dict);
 }
