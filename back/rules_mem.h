@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/22 13:58:12 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/22 22:12:24 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/22 18:42:01 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/23 23:35:40 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FILE_H
-# define FILE_H
+#ifndef RULES_MEM_H
+# define RULES_MEM_H
 
-int		filename_exists(char *filename);
-int		count_lines(char *filename);
-char	**read_lines(char *filename, int *num_lines);
+struct s_key_value	*allocate_s_key_value(int s_txt, int s_trans);
+void				de_allocate_s_key_value(struct s_key_value key);
+struct s_key_value	**allocate_dict(int size);
+void				de_allocate_dict(struct s_key_value **dict, int size);
 #endif

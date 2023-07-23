@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   texts.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/22 13:58:12 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/22 22:12:24 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/22 19:47:34 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/23 23:26:09 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FILE_H
-# define FILE_H
+#ifndef TEXTS2_H
+# define TEXTS2_H
 
-int		filename_exists(char *filename);
-int		count_lines(char *filename);
-char	**read_lines(char *filename, int *num_lines);
+char	**process_str2(char *str, char *charset, char **items);
 #endif

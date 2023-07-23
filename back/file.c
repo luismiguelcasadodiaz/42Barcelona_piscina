@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 13:58:12 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/22 22:01:03 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/23 22:58:36 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include "memory.h"
 #include "texts.h"
+#include "textsaux.h"
 
 #define BUFFER_SIZE	4096
 
@@ -53,12 +54,14 @@ int	count_lines(char *filename)
 	buffer = allocate_buffer_char(BUFFER_SIZE);
 	num_lines = 0;
 	buffer_idx = 0;
-	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	while (bytes_read > 0)
 	{
 		buffer_idx = 0;
 		while (buffer_idx <= bytes_read)
 			if (buffer[buffer_idx++] == '\n')
 				num_lines++;
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
 	}
 	free(buffer);
 	close(fd);
@@ -69,19 +72,20 @@ int	count_lines(char *filename)
 /* Read lines returns **char wiht all lines found inside the filename.        */
 /* 		returns -1 when any error happens                                     */
 /* ************************************************************************** */
-char	**read_lines(char *filename)
+char	**read_lines(char *filename, int *num_lines)
 {
 	int		fd;
-	char	**buffers;
+	char	**lineas;
 	char	*buffer;
 
 	buffer = allocate_buffer_char(BUFFER_SIZE);
-	buffers = allocate_buff_buff_char(count_lines(filename));
+	*num_lines = count_lines(filename);
+	lineas = allocate_buff_buff_char(*num_lines);
 	fd = open(filename, O_RDONLY);
 	while (read(fd, buffer, BUFFER_SIZE) > 0)
 	{
-		process_str(buffer, "\n", buffers);
+		process_str(buffer, "\n", lineas);
 	}
 	close(fd);
-	return (buffers);
+	return (lineas);
 }
