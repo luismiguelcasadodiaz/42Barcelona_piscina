@@ -25,6 +25,11 @@ char	*allocate_buffer_char(int size)
 	return (buffer);
 }
 
+void	de_allocate_buffer_char(char *buffer)
+{
+	free(buffer);
+}
+
 char	**allocate_buff_buff_char(int size)
 {
 	char	**buffers;
@@ -36,4 +41,16 @@ char	**allocate_buff_buff_char(int size)
 		return (buffers);
 	}
 	return (buffers);
+}
+
+void	de_allocate_buff_buff_char(char **buffer, int size)
+{
+	int	idx;
+
+	idx = 0;
+	while (idx < size)
+	{
+		de_allocate_buffer_char(buffer[idx++]);
+	}
+	free(buffer);
 }

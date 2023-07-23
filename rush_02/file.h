@@ -14,5 +14,5 @@
 
 int		filename_exists(char *filename);
 int		count_lines(char *filename);
-char	**read_lines(char *filename);
+char	**read_lines(char *filename, int *num_lines);
 #endif

@@ -53,12 +53,14 @@ int	count_lines(char *filename)
 	buffer = allocate_buffer_char(BUFFER_SIZE);
 	num_lines = 0;
 	buffer_idx = 0;
-	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	while (bytes_read > 0)
 	{
 		buffer_idx = 0;
 		while (buffer_idx <= bytes_read)
 			if (buffer[buffer_idx++] == '\n')
 				num_lines++;
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
 	}
 	free(buffer);
 	close(fd);
@@ -69,14 +71,15 @@ int	count_lines(char *filename)
 /* Read lines returns **char wiht all lines found inside the filename.        */
 /* 		returns -1 when any error happens                                     */
 /* ************************************************************************** */
-char	**read_lines(char *filename)
+char	**read_lines(char *filename, int *num_lines)
 {
 	int		fd;
 	char	**buffers;
 	char	*buffer;
 
 	buffer = allocate_buffer_char(BUFFER_SIZE);
-	buffers = allocate_buff_buff_char(count_lines(filename));
+	*num_lines = count_lines(filename);
+	buffers = allocate_buff_buff_char(*num_lines);
 	fd = open(filename, O_RDONLY);
 	while (read(fd, buffer, BUFFER_SIZE) > 0)
 	{

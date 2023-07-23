@@ -14,4 +14,6 @@
 
 char	*allocate_buffer_char(int size);
 char	**allocate_buff_buff_char(int size);
+void	de_allocate_buff_buff_char(char **buffer, int size);
+void	de_allocate_buffer_char(char *buffer);
 #endif

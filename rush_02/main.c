@@ -13,10 +13,14 @@
 #include <stdio.h>
 #include "file.h"
 #include "texts.h"
+#include "memory.h"
+#include "rules.h"
 
 int	main(int argc, char **argv)
 {
 	char	**lines;
+	char	**rule;
+	int		num_lines;
 	int		i;
 
 	if (argc == 2)
@@ -24,13 +28,17 @@ int	main(int argc, char **argv)
 		if (filename_exists(argv[1]))
 		{
 			printf("File  %s has %d lines\n", argv[1], count_lines(argv[1]));
-			lines = read_lines(argv[1]);
+			lines = read_lines(argv[1], &num_lines);
 			i = 0;
-			while (i < 32)
-			{	
-				printf("Rule %d key= %s  \n", i, lines[i]);
+			while (i < num_lines)
+			{
+				rule = split_rule(lines[i]);
+				printf("Rule %d key= >%s< value = >%s<  \n", i, rule[0], rule[1]);
 				i++;
+				delete_rule(rule);
 			}
+			printf("%s \n", lines[0]);
+			de_allocate_buff_buff_char(lines, num_lines);
 		}
 	}
 	else
