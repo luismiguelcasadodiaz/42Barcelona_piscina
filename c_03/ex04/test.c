@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/18 18:04:26 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/21 14:53:05 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -14,7 +14,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+char	*ft_strstr(char *str, char *to_find);
 
 void	ft_putstr(char *str)
 {
@@ -28,45 +28,41 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	prueba(char *txt, unsigned int nc)
+void	prueba(char *txt1, char *txt2)
 {
-	char			*pd;
-	char			*ps;
-	char			*pmid;
-	char			*pmis;
-	unsigned int	mir;
-	unsigned int	r;
-	int				ns;
+	char			*pmi_str;
+	char			*psu_str;
 
-	ns = strlen(txt);
-	pd = (char *)malloc((nc +1) * sizeof(char));
-	ps = (char *)malloc((ns +1) * sizeof(char));
-	strcpy(ps, txt);
-	pmid = (char *)malloc((nc +1) * sizeof(char));
-	pmis = (char *)malloc((ns +1) * sizeof(char));
-	strcpy(pmis, txt);
-	mir = ft_strlcpy(pmid, pmis, nc);
-	r = strlcpy(pd, ps, nc);
-	printf("el %d >%s<\n", r, pd);
-	printf("yo %d >%s<\n", mir, pmid);
-	if (mir == r && !strcmp(pmid, pd))
+	pmi_str = ft_strstr(txt1, txt2);
+	psu_str = strstr(txt1, txt2);
+	if (pmi_str == NULL && psu_str == NULL)
+		ft_putstr("Mi función \033[1;92memula al sistema\n");
+	else if (!(strcmp(pmi_str, psu_str)))
 		ft_putstr("Mi función \033[1;92memula al sistema\n");
 	else
 		ft_putstr("Mi Funcion \033[1;91mno emula al sistema,\n");
 	ft_putstr("\033[0m");
-	free(pd);
-	free(ps);
-	free(pmid);
-	free(pmis);
+	printf(">%s< has >%s<?  YO >%s< EL >%s<\n", txt1, txt2, pmi_str, psu_str);
 }
 
 int	main(void)
 {
-	prueba("Alfonsoca", 1);
-	prueba("Alfonsoca", 10);
-	prueba("Alfonsoca", 13);
-	prueba("DCBA", 1);
-	prueba("DCBA", 5);
-	prueba("DCBA", 7);
+	//prueba(NULL, NULL);
+	//prueba("", NULL);
+	//prueba(NULL, "");
+	prueba("", "Piscina");
+	prueba("Piscina", "");
+	prueba("Piscina", "P");
+	prueba("Piscina", "a");
+	prueba("Piscina", "Pi");
+	prueba("Piscina", "na");
+	prueba("Piscina", "i");
+	prueba("Piscina", "is");
+	prueba("Piscina", "na");
+	prueba("Piscina", "isc");
+	prueba("Piscina", "sci");
+	prueba("Piscina", "ina");
+	prueba("Piscina", "ino");
+	prueba("Piscina", "inat");
 	return (0);
 }
