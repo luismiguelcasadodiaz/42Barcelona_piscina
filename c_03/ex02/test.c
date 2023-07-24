@@ -30,47 +30,38 @@ void	ft_putstr(char *str)
 
 void	prueba(char *txt1, char *txt2)
 {
-	char			*ptxt1;
-	char			*ptxt2;
-	char			*pmi_n;
-	char			*psu_n;
+	char			*pmi_cat;
+	char			*psu_cat;
+	char			*pmi_dst;
+	char			*psu_dst;
 
-	ptxt1 = (char *)malloc((strlen(txt1) +1) * sizeof(char));
-	ptxt2 = (char *)malloc((strlen(txt2) +1) * sizeof(char));
-	strcpy(ptxt1, txt1);
-	strcpy(ptxt2, txt2);
-	pmi_n = ft_strcat(ptxt1, ptxt2);
-	psu_n = strcat(ptxt1, ptxt2);
-	printf(" mi %s su %s\n", pmi_n, psu_n);
-	if (ft_strcat(ptxt1, ptxt2) == strcat(ptxt1, ptxt2))
+	pmi_dst=(char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	psu_dst=(char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	strcpy(pmi_dst, txt1);
+	strcpy(psu_dst, txt1);
+	pmi_cat = ft_strcat(pmi_dst, txt2);
+	psu_cat = strcat(psu_dst, txt2);
+	if (!(strcmp(pmi_cat, psu_cat)))
 		ft_putstr("Mi función \033[1;92memula al sistema\n");
 	else
 		ft_putstr("Mi Funcion \033[1;91mno emula al sistema,\n");
 	ft_putstr("\033[0m");
-	free(ptxt1);
-	free(ptxt2);
+	printf(" YO >%s<\n EL >%s<\n", pmi_cat, psu_cat);
+	free(pmi_dst);
+	free(psu_dst);
 }
 
 int	main(void)
 {
 	prueba("", "Alfonsoca");
-	prueba("", "Alfonsoca");
-	prueba("", "Alfonsoca");
-	prueba("A", "Alfonsoca");
-	prueba("B", "Alfonsoca");
-	prueba("A", "Alfonsoca");
-	prueba("A", "Alfonsoca");
-	prueba("Alfonsoca", "Alfonsoca");
-	prueba("Alfonsoca", "Alfonsoca");
+	prueba("A-", "Alfonsoca");
+	prueba("A--", "Alfonsoca");
+	prueba("EL señor ", "Alfonsoca");
 	prueba("Alfonsoca", "Alfonsoca");
 	prueba("DCBA", "" );
-	prueba("DCBA", "" );
-	prueba("DCBA", "" );
+	prueba("DCBA", " D" );
+	prueba("DCBA", "-D" );
 	prueba("DCBA", "D" );
-	prueba("DCBA", "D" );
-	prueba("DCBA", "D" );
-	prueba("DCBA", "DCBA" );
-	prueba("DCBA", "DCBA" );
 	prueba("DCBA", "DCBA" );
 	return (0);
 }
