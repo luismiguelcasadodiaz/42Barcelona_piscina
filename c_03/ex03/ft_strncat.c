@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:32:58 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/18 18:04:29 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/21 14:55:05 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -29,29 +29,24 @@ int	ft_strlen(char *str)
 }
 
 /* ************************************************************************** */
-/* ft_strlcpy copy src into a buffer dst with size spaces                     */
+/* ft_strcat concatenates src, after dst (overwriting its null termination.   */
 /*            null termitates the copy                                        */
 /* RETURNS    size of src string.                                             */
 /* ************************************************************************** */
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int	idx;
-	unsigned int	src_size;
+	int				idx_dest;
+	unsigned int	idx_src;
 
-	src_size = 0;
 	if (src != NULL && dest != NULL)
 	{
-		src_size = ft_strlen(src);
-		if (size > 0)
+		idx_dest = ft_strlen(dest);
+		idx_src = 0;
+		while (idx_src < nb && src[idx_src] != '\0')
 		{
-			idx = 0;
-			while (idx < size - 1 && idx <= src_size)
-			{
-				dest[idx] = src[idx];
-				idx++;
-			}
-			dest[idx] = '\0';
+			dest[idx_dest++] = src[idx_src++];
 		}
+		dest[idx_dest] = '\0';
 	}
-	return (src_size);
+	return (dest);
 }
