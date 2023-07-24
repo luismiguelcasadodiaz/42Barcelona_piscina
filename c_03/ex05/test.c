@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/18 18:04:26 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/21 14:53:05 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -14,7 +14,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int nb);
 
 void	ft_putstr(char *str)
 {
@@ -28,50 +28,47 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	prueba(char *txt, unsigned int nc)
+void	prueba(char *txt1, char *txt2, unsigned int nb)
 {
-	char			*pd;
-	char			*ps;
-	char			*pmid;
-	char			*pmis;
-	unsigned int	mir;
-	unsigned int	r;
-	int				ns;
+	unsigned int	mi_int;
+	unsigned int	su_int;
+	char			*pmi_dst;
+	char			*psu_dst;
 
-	ns = strlen(txt);
-	pd = (char *)malloc((nc +1) * sizeof(char));
-	ps = (char *)malloc((ns +1) * sizeof(char));
-	strcpy(ps, txt);
-	pmid = (char *)malloc((nc +1) * sizeof(char));
-	pmis = (char *)malloc((ns +1) * sizeof(char));
-	strcpy(pmis, txt);
-	mir = ft_strlcpy(pmid, pmis, nc);
-	r = strlcpy(pd, ps, nc);
-	printf("el %d >%s<\n", r, pd);
-	printf("yo %d >%s<\n", mir, pmid);
-	if ( mir == r && !strcmp(pmid, pd))
+	pmi_dst = (char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	psu_dst = (char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	strcpy(pmi_dst, txt1);
+	strcpy(psu_dst, txt1);
+	mi_int = ft_strlcat(pmi_dst, txt2, nb);
+	su_int = strlcat(psu_dst, txt2, nb);
+	if (!(strcmp(pmi_dst, psu_dst) && mi_int == su_int))
 		ft_putstr("Mi función \033[1;92memula al sistema\n");
 	else
 		ft_putstr("Mi Funcion \033[1;91mno emula al sistema,\n");
 	ft_putstr("\033[0m");
-	free(pd);
-	free(ps);
-	free(pmid);
-	free(pmis);
-	//free(pmir);
-	//free(prr);
+	printf(" YO %d >%s<\n EL %d >%s<\n", mi_int, pmi_dst, su_int, psu_dst);
+	free(pmi_dst);
+	free(psu_dst);
 }
 
 int	main(void)
 {
-	prueba("Alfonsoca", 1);
-	prueba("Alfonsoca", 10);
-	prueba("Alfonsoca", 13);
-	prueba("DCBA", 1);
-	prueba("DCBA", 5);
-	prueba("DCBA", 7);
-	//prueba_10_NU();
-//	prueba_NU_10();
-	//prueba_NU_NU();
+	prueba("", "0lfonsoca", 0);
+	prueba("", "1lfonsoca", 1);
+	prueba("", "2lfonsoca", 2);
+	prueba("", "3lfonsoca", 3);
+	prueba("A-", "Alfonsoca", 1);
+	prueba("A--", "Alfonsoca", 1);
+	prueba("EL señor ", "Alfonsoca", 1);
+	prueba("Alfonsoca", "Alfonsoca", 1);
+	prueba("DCB0", "", 0);
+	prueba("DCB1", "", 1);
+	prueba("DCB2", "", 2);
+	prueba("DCB3", "", 3);
+	prueba("DCB4", "", 4);
+	prueba("DCBA", " D", 1);
+	prueba("DCBA", "-D", 2);
+	prueba("DCBA", "D", 3);
+	prueba("DCBA", "DCBA", 1);
 	return (0);
 }
