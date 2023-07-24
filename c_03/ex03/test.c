@@ -35,8 +35,8 @@ void	prueba(char *txt1, char *txt2, unsigned int nb)
 	char			*pmi_dst;
 	char			*psu_dst;
 
-	pmi_dst=(char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
-	psu_dst=(char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	pmi_dst = (char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	psu_dst = (char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
 	strcpy(pmi_dst, txt1);
 	strcpy(psu_dst, txt1);
 	pmi_cat = ft_strncat(pmi_dst, txt2, nb);
@@ -61,14 +61,14 @@ int	main(void)
 	prueba("A--", "Alfonsoca", 1);
 	prueba("EL señor ", "Alfonsoca", 1);
 	prueba("Alfonsoca", "Alfonsoca", 1);
-	prueba("DCB0", "" , 0);
-	prueba("DCB1", "" , 1);
-	prueba("DCB2", "" , 2);
-	prueba("DCB3", "" , 3);
-	prueba("DCB4", "" , 4);
-	prueba("DCBA", " D" , 1);
-	prueba("DCBA", "-D" , 2);
-	prueba("DCBA", "D" , 3);
-	prueba("DCBA", "DCBA" , 1);
+	prueba("DCB0", "", 0);
+	prueba("DCB1", "", 1);
+	prueba("DCB2", "", 2);
+	prueba("DCB3", "", 3);
+	prueba("DCB4", "", 4);
+	prueba("DCBA", " D", 1);
+	prueba("DCBA", "-D", 2);
+	prueba("DCBA", "D", 3);
+	prueba("DCBA", "DCBA", 1);
 	return (0);
 }

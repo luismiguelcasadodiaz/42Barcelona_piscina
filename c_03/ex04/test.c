@@ -49,7 +49,7 @@ void	prueba(char *txt, unsigned int nc)
 	r = strlcpy(pd, ps, nc);
 	printf("el %d >%s<\n", r, pd);
 	printf("yo %d >%s<\n", mir, pmid);
-	if ( mir == r && !strcmp(pmid, pd))
+	if (mir == r && !strcmp(pmid, pd))
 		ft_putstr("Mi función \033[1;92memula al sistema\n");
 	else
 		ft_putstr("Mi Funcion \033[1;91mno emula al sistema,\n");
@@ -58,8 +58,6 @@ void	prueba(char *txt, unsigned int nc)
 	free(ps);
 	free(pmid);
 	free(pmis);
-	//free(pmir);
-	//free(prr);
 }
 
 int	main(void)
@@ -70,8 +68,5 @@ int	main(void)
 	prueba("DCBA", 1);
 	prueba("DCBA", 5);
 	prueba("DCBA", 7);
-	//prueba_10_NU();
-//	prueba_NU_10();
-	//prueba_NU_NU();
 	return (0);
 }

@@ -30,13 +30,13 @@ void	ft_putstr(char *str)
 
 void	prueba(char *txt1, char *txt2, int n)
 {
-	char			*ptxt1;
-	char			*ptxt2;
-	int				mi_n;
-	int 			su_n;
+	char	*ptxt1;
+	char	*ptxt2;
+	int		mi_n;
+	int		su_n;
 
-	ptxt1 = (char *)malloc((strlen(txt1) +1) * sizeof(char));
-	ptxt2 = (char *)malloc((strlen(txt2) +1) * sizeof(char));
+	ptxt1 = (char *)malloc((strlen(txt1) + 1) * sizeof(char));
+	ptxt2 = (char *)malloc((strlen(txt2) + 1) * sizeof(char));
 	strcpy(ptxt1, txt1);
 	strcpy(ptxt2, txt2);
 	mi_n = ft_strncmp(ptxt1, ptxt2, n);
@@ -63,14 +63,14 @@ int	main(void)
 	prueba("Alfonsoca", "Alfonsoca", 1);
 	prueba("Alfonsoca", "Alfonsoca", 2);
 	prueba("Alfonsoca", "Alfonsoca", 3);
-	prueba("DCBA", "" , 1);
-	prueba("DCBA", "" , 2);
-	prueba("DCBA", "" , 3);
-	prueba("DCBA", "D" , 1);
-	prueba("DCBA", "D" , 2);
-	prueba("DCBA", "D" , 3);
-	prueba("DCBA", "DCBA" , 1);
-	prueba("DCBA", "DCBA" , 2);
-	prueba("DCBA", "DCBA" , 3);
+	prueba("DCBA", "", 1);
+	prueba("DCBA", "", 2);
+	prueba("DCBA", "", 3);
+	prueba("DCBA", "D", 1);
+	prueba("DCBA", "D", 2);
+	prueba("DCBA", "D", 3);
+	prueba("DCBA", "DCBA", 1);
+	prueba("DCBA", "DCBA", 2);
+	prueba("DCBA", "DCBA", 3);
 	return (0);
 }

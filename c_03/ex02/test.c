@@ -35,8 +35,8 @@ void	prueba(char *txt1, char *txt2)
 	char			*pmi_dst;
 	char			*psu_dst;
 
-	pmi_dst=(char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
-	psu_dst=(char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	pmi_dst = (char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	psu_dst = (char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
 	strcpy(pmi_dst, txt1);
 	strcpy(psu_dst, txt1);
 	pmi_cat = ft_strcat(pmi_dst, txt2);
