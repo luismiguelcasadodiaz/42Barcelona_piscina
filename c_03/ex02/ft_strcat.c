@@ -29,14 +29,14 @@ int	ft_strlen(char *str)
 }
 
 /* ************************************************************************** */
-/* ft_strlcpy copy src into a buffer dst with size spaces                     */
+/* ft_strcat concatenates src, after dst (overwriting its null termination.   */
 /*            null termitates the copy                                        */
 /* RETURNS    size of src string.                                             */
 /* ************************************************************************** */
 char	*ft_strcat(char *dest, char *src)
 {
 	int	idx_dest;
-	int idx_src;
+	int	idx_src;
 
 	if (src != NULL && dest != NULL)
 	{
