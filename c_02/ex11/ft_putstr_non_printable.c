@@ -37,37 +37,17 @@ void	ft_hex_of(int num, int theme)
 	}
 }
 
-int	ft_in_rng(int min, int max, int c)
-{
-	if (min <= c && c <= max)
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_non_print_char(int c)
-{
-	int	result;
-
-	result = 0;
-	result += ft_in_rng(0, 31, c);
-	result += ft_in_rng(127, 127, c);
-	return (result);
-}
-
 void	ft_putstr_non_printable(char *str)
 {
 	int	idx;
 
-	if (str != NULL)
+	idx = 0;
+	while (str[idx] != '\0')
 	{
-		idx = -1;
-		while (str[++idx] != '\0')
-		{
-			if (ft_non_print_char((int)str[idx]))
-				ft_hex_of((int)str[idx], 1);
-			else
-				write(1, &str[idx], 1);
-		}
+		if ((0 <= str[idx] && str[idx] <= 31) || str[idx] == 127)
+			ft_hex_of((int)str[idx], 1);
+		else
+			write(1, &str[idx], 1);
+		idx++;
 	}
 }
