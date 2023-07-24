@@ -49,12 +49,16 @@ char	treat_char(int c, int *in_word, int *first_c)
 		{
 			*in_word = 1;
 			*first_c = 1;
-			if (ft_lower_char(c))
+			if (97 <= c && c <= 122)
 				c -= 32;
 		}
 		else
+		{
+			if (65 <= c && c <= 90)
+				c += 32;
 			if (*first_c)
 				*first_c = 0;
+		}
 	}
 	return (c);
 }
