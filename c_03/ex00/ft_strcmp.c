@@ -21,8 +21,11 @@ int	ft_strcmp(char *s1, char *s2)
 
 	idx = -1;
 	if (s1 != NULL && s2 != NULL)
+	{
 		while (s1[++idx] != '\0' && s2[idx] != '\0' && s1[idx] == s2[idx])
-	   	{
-	   	}
-	return (s1[idx] - s2[idx]);
+		{
+		}
+		return (s1[idx] - s2[idx]);
+	}
+	return (0);
 }
