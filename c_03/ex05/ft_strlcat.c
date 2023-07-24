@@ -33,7 +33,7 @@ int	ft_strlen(char *str)
 /*            null termitates the copy                                        */
 /* RETURNS    size of src string.                                             */
 /* ************************************************************************** */
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int nb)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	int				idx_dest;
 	unsigned int	idx_src;
@@ -42,7 +42,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int nb)
 	{
 		idx_dest = ft_strlen(dest);
 		idx_src = 0;
-		while (idx_src < nb && src[idx_src] != '\0')
+		while (idx_src < size && src[idx_src] != '\0')
 		{
 			dest[idx_dest++] = src[idx_src++];
 		}

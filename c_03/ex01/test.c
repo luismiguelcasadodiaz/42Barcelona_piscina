@@ -14,7 +14,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-int	ft_strncmp(char *s1, char *s2, int n);
+int	ft_strncmp(char *s1, char *s2, unsigned int n);
 
 void	ft_putstr(char *str)
 {

@@ -14,7 +14,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int nb);
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 
 void	ft_putstr(char *str)
 {

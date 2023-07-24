@@ -16,9 +16,9 @@
 /*            null termitates the copy                                        */
 /* RETURNS    size of src string.                                             */
 /* ************************************************************************** */
-int	ft_strncmp(char *s1, char *s2, int n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 	int	result;
 
 	i = -1;
