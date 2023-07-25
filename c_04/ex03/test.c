@@ -12,6 +12,8 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 /*
   INT_MAX =  2147483647 
   INT_MIN = -2147483648
@@ -24,22 +26,34 @@ int	ft_atoi(char *str);
 
 void	prueba(char *str)
 {
-	if (ft_atoi(str) == atoi(str))
+	char	*pmistr;
+	char	*psustr;
+	
+	pmistr = (char*)malloc((strlen(str) + 1) *sizeof(char));
+	psustr = (char*)malloc((strlen(str) + 1) *sizeof(char));
+	strcpy(pmistr, str);
+	strcpy(psustr, str);
+	printf("%s ", pmistr);
+	if (ft_atoi(pmistr) == atoi(psustr))
 	{
 		printf("Mi función \033[1;92msi emula al sistema   ");
-		printf("YO >%d< EL >%d< \n", ft_atoi(str), atoi(str));
+		printf("YO >%d< EL >%d< \n", ft_atoi(psustr), atoi(psustr));
 	}
 	else
 	{
 		printf("Mi Funcion \033[1;91mno emula al sistema,  ");
-		printf("YO >%d< EL >%d< \n", ft_atoi(str), atoi(str));
+		printf("YO >%d< EL >%d< \n", ft_atoi(psustr), atoi(psustr));
 	}
 	printf("\033[0m");
+	free(pmistr);
+	free(psustr);
 }
 
 int	main(void)
 {
+	prueba(" ---+--+  -1234ab567");
 	prueba(" ---+--+1234ab567");
+	prueba(" ---+--+1234");
 	prueba("-2147483648");
 	prueba("-2147483647");
 	prueba("-2147");
