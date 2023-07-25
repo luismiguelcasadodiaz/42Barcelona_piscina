@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:32:58 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/21 13:57:48 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/25 13:42:06 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/25 13:42:16 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -19,7 +19,7 @@
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
-	int	result;
+	int				result;
 
 	i = -1;
 	while (++i < n && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])

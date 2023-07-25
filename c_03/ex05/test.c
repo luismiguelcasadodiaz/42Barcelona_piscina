@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/21 14:53:05 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:41:04 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -34,41 +34,60 @@ void	prueba(char *txt1, char *txt2, unsigned int nb)
 	unsigned int	su_int;
 	char			*pmi_dst;
 	char			*psu_dst;
+	int				txt1_size;
+	int				txt2_size;
 
-	pmi_dst = (char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
-	psu_dst = (char *)malloc((strlen(txt1) + strlen(txt2) + 1) * sizeof(char));
+	txt1_size = strlen(txt1);
+	txt2_size = strlen(txt2);
+	pmi_dst = (char *)malloc((txt1_size + txt2_size + 1) * sizeof(char));
+	psu_dst = (char *)malloc((txt1_size + txt2_size + 1) * sizeof(char));
 	strcpy(pmi_dst, txt1);
 	strcpy(psu_dst, txt1);
 	mi_int = ft_strlcat(pmi_dst, txt2, nb);
 	su_int = strlcat(psu_dst, txt2, nb);
-	if (!(strcmp(pmi_dst, psu_dst) && mi_int == su_int))
-		ft_putstr("Mi función \033[1;92memula al sistema\n");
+	if (mi_int == su_int)
+	{
+		if (!(strcmp(pmi_dst, psu_dst)))
+			ft_putstr("Mi función \033[1;92msi emula al sistema   ");
+		else
+			ft_putstr("Mi Funcion \033[1;91mno emula al sistema.  ");
+	}
 	else
-		ft_putstr("Mi Funcion \033[1;91mno emula al sistema,\n");
+		ft_putstr("Mi Funcion \033[1;91mno emula al sistema,  ");
 	ft_putstr("\033[0m");
-	printf(" YO %d >%s<\n EL %d >%s<\n", mi_int, pmi_dst, su_int, psu_dst);
+	printf("t1=%d, t2=%d, buff=%d, size=%d, numchar=%d", txt1_size, txt2_size, txt1_size + txt2_size + 1, nb, nb - txt1_size -1);
+	printf(" YO %d >%s<   EL %d >%s<\n", mi_int, pmi_dst, su_int, psu_dst);
 	free(pmi_dst);
 	free(psu_dst);
 }
 
 int	main(void)
 {
-	prueba("", "0lfonsoca", 0);
-	prueba("", "1lfonsoca", 1);
-	prueba("", "2lfonsoca", 2);
-	prueba("", "3lfonsoca", 3);
-	prueba("A-", "Alfonsoca", 1);
-	prueba("A--", "Alfonsoca", 1);
+	prueba("", "", 1);
+	prueba("", "0lfonsoca", 1);
+	prueba("Alfonsoca", "", 10);
+	prueba("Alfonsocasado", "1234", 10);
+	prueba("Alfonsoca", "1234", 11);
+	prueba("Alfonsoca", "1234", 12);
+	prueba("Alfonsoca", "1234", 13);
+	prueba("", "2lfonsoca", 1);
+	prueba("", "3lfonsoca", 1);
+	prueba("A-", "Alfonsoca", 3);
+	prueba("A-", "Alfonsoca", 4);
+	prueba("A-", "Alfonsoca", 5);
+	prueba("A-", "Alfonsoca", 6);
+	prueba("A-", "Alfonsoca", 7);
 	prueba("EL señor ", "Alfonsoca", 1);
-	prueba("Alfonsoca", "Alfonsoca", 1);
-	prueba("DCB0", "", 0);
-	prueba("DCB1", "", 1);
-	prueba("DCB2", "", 2);
-	prueba("DCB3", "", 3);
-	prueba("DCB4", "", 4);
-	prueba("DCBA", " D", 1);
-	prueba("DCBA", "-D", 2);
-	prueba("DCBA", "D", 3);
-	prueba("DCBA", "DCBA", 1);
+	prueba("Luis ", "Miguel", 1);
+	prueba("Luis ", "Miguel", 2);
+	prueba("Luis ", "Miguel", 3);
+	prueba("Luis ", "Miguel", 4);
+	prueba("Luis ", "Miguel", 5);
+	prueba("Luis ", "Miguel", 6);
+	prueba("DCB0", " 1111", 5);
+	prueba("DCB1", " 2222", 6);
+	prueba("DCB2", " 3333", 7);
+	prueba("DCB3", " 4444", 8);
+	prueba("DCB4", " 5555", 9);
 	return (0);
 }

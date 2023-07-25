@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:32:58 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/21 14:55:05 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/25 13:43:29 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/25 13:43:37 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -29,24 +29,37 @@ int	ft_strlen(char *str)
 }
 
 /* ************************************************************************** */
-/* ft_strcat concatenates src, after dst (overwriting its null termination.   */
-/*            null termitates the copy                                        */
-/* RETURNS    size of src string.                                             */
+/* ft_strlcat appends string src to the end of dest.                          */
+/*            It will append at most size - strlen(dest) - 1 characters.      */
+/*            It will then NUL-terminate, unless size is 0 or the original    */
+/*            dest string was longer than size.                               */
+/*               (in practice this should not happen as it means that either  */
+/*                 * size is incorrect                                        */
+/*                 * dst is not a proper string)                              */
+/*                                                                            */
+/* RETURNS    the initial length of dst plus the length of src                */
 /* ************************************************************************** */
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int				idx_dest;
-	unsigned int	idx_src;
+	unsigned int	dest_size;
+	unsigned int	src_size;
+	int				append_chars;
+	int				idx_src;
 
-	if (src != NULL && dest != NULL)
+	dest_size = ft_strlen(dest);
+	src_size = ft_strlen(src);
+	append_chars = size - dest_size - 1; 
+	if (append_chars >= 0)
 	{
-		idx_dest = ft_strlen(dest);
 		idx_src = 0;
-		while (idx_src < size && src[idx_src] != '\0')
+		while (append_chars > 0 && src[idx_src] != '\0')
 		{
-			dest[idx_dest++] = src[idx_src++];
+			dest[dest_size + idx_src] = src[idx_src];
+			append_chars--;
+			idx_src++;
 		}
-		dest[idx_dest] = '\0';
+		dest[dest_size + idx_src] = '\0';
+		return (dest_size + src_size);
 	}
-	return (--idx_dest);
+	return (size + src_size);
 }
