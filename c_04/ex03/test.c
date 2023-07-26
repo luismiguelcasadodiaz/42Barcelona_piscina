@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/25 17:50:34 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/26 21:56:26 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -28,22 +28,22 @@ void	prueba(char *str)
 {
 	char	*pmistr;
 	char	*psustr;
-	
-	pmistr = (char*)malloc((strlen(str) + 1) *sizeof(char));
-	psustr = (char*)malloc((strlen(str) + 1) *sizeof(char));
+	int		yo;
+	int		el;
+
+	pmistr = (char *)malloc((strlen(str) + 1) * sizeof(char));
+	psustr = (char *)malloc((strlen(str) + 1) * sizeof(char));
 	strcpy(pmistr, str);
 	strcpy(psustr, str);
 	printf("%s ", pmistr);
-	if (ft_atoi(pmistr) == atoi(psustr))
-	{
+	yo = ft_atoi(pmistr);
+	el = atoi(psustr);
+	printf("%s ", pmistr);
+	if (yo == el)
 		printf("Mi función \033[1;92msi emula al sistema   ");
-		printf("YO >%d< EL >%d< \n", ft_atoi(psustr), atoi(psustr));
-	}
 	else
-	{
 		printf("Mi Funcion \033[1;91mno emula al sistema,  ");
-		printf("YO >%d< EL >%d< \n", ft_atoi(psustr), atoi(psustr));
-	}
+	printf("YO >%d< EL >%d< \n", yo, el);
 	printf("\033[0m");
 	free(pmistr);
 	free(psustr);
@@ -51,8 +51,8 @@ void	prueba(char *str)
 
 int	main(void)
 {
-	prueba(" ---+--+  -1234ab567");
-	prueba(" ---+--+1234ab567");
+	prueba(" ---+--+1234a-b567");
+	prueba(" ---+--+1234-ab567");
 	prueba(" ---+--+1234");
 	prueba("-2147483648");
 	prueba("-2147483647");

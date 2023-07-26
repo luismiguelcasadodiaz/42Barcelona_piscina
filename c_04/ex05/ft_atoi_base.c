@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/25 16:43:37 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/26 21:47:35 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/26 22:04:02 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/26 22:48:38 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -32,66 +32,18 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-int	ft_strlen(char *str)
-{
-	int	idx;
-
-	idx = 0;
-	if (str != NULL)
-	{
-		while (str[idx] != '\0')
-			idx++;
-	}
-	return (idx);
-}
-
-/* ************************************************************************** */
-/* ft_clean  Removes all isspace(3) spaces and '+'s, filling hole with the    */
-/*           char at the right.                                               */
-/*           Counts '-' informing is count is even or odd thru *sign          */
-/*           Counts '-' before numbers only                                   */
-/* RETURNS   trimmed string.                                                  */
-/* ************************************************************************** */
-char	*ft_clean(char *txt, int *negative)
-{
-	int	idx;
-	int	non_spaces;
-	int	rmove;
-	int	negatives;
-	int	in_num;
-
-	in_num = 0;
-	negatives = 0;
-	non_spaces = 0;
-	idx = -1;
-	while (txt[++idx] < 58 && txt[idx] != '\0')
-	{
-		rmove = (txt[idx] == ' ' || txt[idx] == '\f' || txt[idx] == '\n');
-		rmove = (rmove || txt[idx] == '\r' || txt[idx] == '\t');
-		rmove = (rmove || txt[idx] == '\v');
-		rmove = (rmove || txt[idx] == '+' || txt[idx] == '-');
-		in_num = in_num + (48 <= txt[idx] && txt[idx] <= 57);
-		if (!rmove)
-			txt[non_spaces++] = txt[idx];
-		else
-			negatives += (!in_num && txt[idx] == '-');
-	}
-	txt[non_spaces] = '\0';
-	*negative = negatives % 2;
-	return (txt);
-}
-
 /* ************************************************************************** */
 /* ft_pos_num Calculates the numeric value of a numeric string                */
 /*                                                                            */
 /*           Counts '-' informing is count is even or odd thru *sign          */
 /* RETURNS    the numeric value in a int integer                              */
 /* ************************************************************************** */
-int	ft_pos_num(char *txt)
+int	ft_pos_num(char *txt, char *base, int num_base)
 {
 	int	len;
 	int	weight;
 	int	sum;
+	int	idx;
 
 	sum = 0;
 	weight = 1;
@@ -101,25 +53,33 @@ int	ft_pos_num(char *txt)
 	}
 	while (--len >= 0)
 	{
-		sum += weight * (txt[len] - 48);
-		weight = weight * 10;
+		idx = -1;
+		while (base[++idx] != txt[len] && base[idx] != '\0')
+		{
+		}
+		sum += weight * idx;
+		weight = weight * num_base;
 	}
 	return (sum);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi_base(char *str, char *base)
 {
-	char			*txt;
-	int				negative;
+	int	num_base;
+	int	j;
+	int	ok;
 
-	txt = ft_clean(str, &negative);
-	if (negative)
+	ok = 1;
+	num_base = -1;
+	while (ok && base[++num_base] != '\0')
 	{
-		if (!ft_strcmp(txt, "2147483648"))
-			return (INT_MIN);
-		else
-			return (-1 * ft_pos_num(txt));
+		j = num_base + 1;
+		ok = (base[num_base] != '+' && base[num_base] != '-');
+		while (ok && base[j] != '\0')
+			ok = (base[num_base] != base[j++]);
 	}
+	if (ok && num_base > 1)
+		return (ft_pos_num(str, base, num_base));
 	else
-		return (ft_pos_num(txt));
+		return (0);
 }
