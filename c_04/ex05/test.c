@@ -6,22 +6,14 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/26 22:58:32 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/26 23:27:47 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 #include <stdio.h>
 #include <limits.h>
 
-/*
-  INT_MAX =  2147483647 
-  INT_MIN = -2147483648
-            12345678901
-		   I need an 11 bytes string for representing any INT.
-		   plus \0 for finishing the string end ==> 12
-*/ 
-
-void	ft_putnbr_base(int nb, char *base);
+int	ft_atoi_base(char *str, char *base);
 
 void	ft_putstr(char *str)
 {
@@ -35,54 +27,24 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	treat_number(int nb)
-{
-	if (nb > 9)
-	{
-		treat_number(nb / 10);
-	}
-	write(1, &"0123456789"[nb % 10], 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb == 0)
-	{
-		write(1, "0", 1);
-	}
-	else if (INT_MIN == nb)
-	{
-		write(1, &"-2147483648", 11);
-	}
-	else if (INT_MIN < nb && nb < 0)
-	{
-		write(1, "-", 1);
-		treat_number(-nb);
-	}
-	else
-	{
-		treat_number(nb);
-	}
-}
-
-void	prueba(int nbr, char *base)
+void	prueba(char *nbr, char *base)
 {
 	ft_putstr("El número ");
-	ft_putnbr(nbr);
+	ft_putstr(nbr);
 	ft_putstr(" en base ");
 	ft_putstr(base);
 	ft_putstr(" es ");
-	ft_putnbr_base(nbr, base);
+	ft_atoi_base(nbr, base);
 	ft_putstr("\n");
 }
 
 int	main(void)
 {
-	prueba(-2147483648, "01");
-	prueba(-2147483647, "01");
-	prueba(+2147483647, "01");
-	prueba(-2147483646, "01");
-	prueba(+2147483646, "01");
+	prueba("A", "AB");
+	prueba("B", "AB");
+	prueba("+243241", "4321");
+	prueba("-oyyyyyyyyyy", "poniguay");
+/*	prueba(+2147483646, "01");
 	prueba(-2147483645, "01");
 	prueba(+2147483645, "01022");
 	prueba(-2147483648, "");
@@ -108,5 +70,5 @@ int	main(void)
 	prueba(7, "01");
 	prueba(-0, "01");
 	prueba(-1, "01");
-	prueba(-7, "01");
+	prueba(-7, "01");*/
 }
