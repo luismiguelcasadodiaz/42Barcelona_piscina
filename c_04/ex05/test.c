@@ -29,13 +29,9 @@ void	ft_putstr(char *str)
 
 void	prueba(char *nbr, char *base)
 {
-	ft_putstr("El número ");
-	ft_putstr(nbr);
-	ft_putstr(" en base ");
-	ft_putstr(base);
-	ft_putstr(" es ");
-	ft_atoi_base(nbr, base);
-	ft_putstr("\n");
+	printf("El número %s ", nbr);
+	printf(" en base %s ", base);
+	printf("es %d\n", ft_atoi_base(nbr, base));
 }
 
 int	main(void)
