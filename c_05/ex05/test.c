@@ -1,5 +1,6 @@
 #include <stdio.h>
 int	ft_sqrt(int index);
+int	ft_sqrt2(int index);
 
 int	main(void)
 {
@@ -18,4 +19,7 @@ int	main(void)
 	printf("Raiz de %d = %d\n", 11, ft_sqrt(11));
 	printf("Raiz de %d = %d\n", 25, ft_sqrt(25));
 	printf("Raiz de %d = %d\n", 26, ft_sqrt(26));
+	printf("Raiz de %d = %d\n", 26, ft_sqrt(100));
+	printf("Raiz de %d = %d\n", 26, ft_sqrt(150));
+	printf("Raiz de %d = %d\n", 26, ft_sqrt(144));
 }

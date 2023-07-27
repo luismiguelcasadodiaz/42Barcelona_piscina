@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/26 21:56:26 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/27 18:40:11 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -51,15 +51,15 @@ void	prueba(char *str)
 
 int	main(void)
 {
-	prueba(" ---+--+1234a-b567");
+	prueba(" --+--+1234a-b567");
 	prueba(" ---+--+1234-ab567");
 	prueba(" ---+--+1234");
 	prueba("-2147483648");
 	prueba("-2147483647");
 	prueba("-2147");
 	prueba("-1");
-	prueba("0");
-	prueba("1");
+	prueba("095");
+	prueba("1.90");
 	prueba("2147483646");
 	prueba("2147483647");
 }

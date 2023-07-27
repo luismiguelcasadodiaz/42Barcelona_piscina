@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/26 23:27:47 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/27 18:47:16 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -37,9 +37,17 @@ void	prueba(char *nbr, char *base)
 int	main(void)
 {
 	prueba("A", "AB");
-	prueba("B", "AB");
-	prueba("+243241", "4321");
+	prueba("BB", "AB");
+	prueba("-A", "AB");
+	prueba("-B", "AB");
+	prueba("1.25", "0123456789");
+	prueba("-125", "0123456789");
+	prueba("243241", "4321");
+	prueba("-243241", "4321");
 	prueba("-oyyyyyyyyyy", "poniguay");
+	prueba("oyyyyyyyyyy", "poniguay");
+	prueba("-FFF", "0123456789ABCDEF");
+	prueba("FFF", "0123456789ABCDEF");
 /*	prueba(+2147483646, "01");
 	prueba(-2147483645, "01");
 	prueba(+2147483645, "01022");

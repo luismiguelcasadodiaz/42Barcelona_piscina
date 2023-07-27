@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 20:18:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/20 20:28:40 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/25 15:13:42 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/25 15:19:18 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -32,15 +32,19 @@ void	prueba(char *txt1, char *txt2)
 {
 	char			*ptxt1;
 	char			*ptxt2;
+	int 			r_yo;
+	int				r_el;
 
 	ptxt1 = (char *)malloc((strlen(txt1) +1) * sizeof(char));
 	ptxt2 = (char *)malloc((strlen(txt2) +1) * sizeof(char));
 	strcpy(ptxt1, txt1);
 	strcpy(ptxt2, txt2);
-	if (ft_strcmp(ptxt1, ptxt2) == strcmp(ptxt1, ptxt2))
-		ft_putstr("Mi función \033[1;92memula al sistema\n");
+	r_yo = ft_strcmp(ptxt1, ptxt2);
+	r_el = strcmp(ptxt1, ptxt2);
+	if (r_yo == r_el)
+		printf("Mi función \033[1;92memula al sistema YO = %d EL = %d \n", r_yo, r_el);
 	else
-		ft_putstr("Mi Funcion \033[1;91mno emula al sistema,\n");
+		printf("Mi Funcion \033[1;91mno emula al sistema,YO = %d EL = %d\n", r_yo, r_el);
 	ft_putstr("\033[0m");
 	free(ptxt1);
 	free(ptxt2);
@@ -48,6 +52,7 @@ void	prueba(char *txt1, char *txt2)
 
 int	main(void)
 {
+	prueba("Hola","Holamundo");
 	prueba("", "Alfonsoca");
 	prueba("A", "Alfonsoca");
 	prueba("Alfonsoca", "Alfonsoca");

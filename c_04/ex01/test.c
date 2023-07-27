@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 19:27:28 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/27 19:27:36 by luicasad         ###   ########.fr       */
+/*   Created: 2023/07/06 15:09:38 by luicasad          #+#    #+#             */
+/*   Updated: 2023/07/11 18:13:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-/* factorial es el numero que resulta de la multiplicacion de un numero    */
-/* natural por todos los numeros que le anteceden exceptuando el cero      */
+void	ft_putstr(char *str);
 
-int	ft_iterative_factorial(int nb)
+int	main(void)
 {
-	int	fact;
-
-	if (0 <= nb)
-	{
-		if (0 == nb)
-			return (1);
-		else
-		{
-			fact = nb;
-			while (0 < --nb)
-				fact = fact * nb;
-			return (fact);
-		}
-	}
-	else
-		return (0);
+	ft_putstr("Luis Miguel Casado Díaz");
+	ft_putstr("L");
+	ft_putstr("");
+	ft_putstr(NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 22:04:02 by luicasad          #+#    #+#             */
-/*   Updated: 2023/07/26 22:48:38 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/07/27 18:52:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -24,14 +24,14 @@ int	ft_pos_num(char *txt, char *base, int num_base)
 	int	weight;
 	int	sum;
 	int	idx;
+	int	negative;
 
 	sum = 0;
 	weight = 1;
 	len = -1;
 	while (txt[++len] != '\0')
-	{
-	}
-	while (--len >= 0)
+		negative = (txt[0] == '-');
+	while (--len >= negative)
 	{
 		idx = -1;
 		while (base[++idx] != txt[len] && base[idx] != '\0')
@@ -40,7 +40,10 @@ int	ft_pos_num(char *txt, char *base, int num_base)
 		sum += weight * idx;
 		weight = weight * num_base;
 	}
-	return (sum);
+	if (negative)
+		return (-sum);
+	else
+		return (sum);
 }
 
 int	ft_atoi_base(char *str, char *base)
