@@ -257,3 +257,18 @@ So to avoid this we declare function prototypes at the start of our programs and
 # git
 
 ![git reference](https://git-scm.com/doc) 
+
+#Final exam
+I got a 60/100 level wiht these exercises:
+|exercise| hour|
+|--------|-----|
+|aff_a |10:08|
+|interval_space|10:24|
+|ft_strcmp|10:32|
+|oce_a|10:46|
+|ft_atoi|14:59|
+|alpha_mirow|15:39|
+|ft_putnbr|16:07|
+|aff_first_param|16:20|
+|is_palindrome|16:52|
+|count_words|17:54|
